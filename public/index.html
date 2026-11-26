@@ -3,529 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#315efb">
 <title>English Learning MN</title>
-
 <style>
 :root{
-  --ink:#172033;
-  --muted:#667085;
-  --line:#e7eaf0;
-  --bg:#f5f7fb;
-  --card:#fff;
-  --blue:#315efb;
-  --blue2:#edf2ff;
-  --green:#16845b;
-  --amber:#a15c07;
-  --shadow:0 8px 28px rgba(24,39,75,.07)
+  --ink:#172033;--muted:#667085;--line:#e7eaf0;--bg:#f5f7fb;
+  --card:#fff;--blue:#315efb;--blue2:#edf2ff;--green:#16845b;
+  --green-bg:#edf8f2;--amber:#a15c07;--amber-bg:#fff6e8;
+  --red:#b42318;--shadow:0 8px 28px rgba(24,39,75,.06)
 }
-
 *{box-sizing:border-box}
-
-body{
-  margin:0;
-  background:var(--bg);
-  color:var(--ink);
-  font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif
-}
-
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 button,input,textarea,select{font:inherit}
 button{cursor:pointer}
+button:disabled{opacity:.6;cursor:not-allowed}
 .app{min-height:100vh}
-
-.top{
-  height:68px;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 26px;
-  position:sticky;
-  top:0;
-  z-index:5
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-weight:800;
-  letter-spacing:-.3px
-}
-
-.logo{
-  width:36px;
-  height:36px;
-  border-radius:11px;
-  background:linear-gradient(135deg,#315efb,#7b61ff);
-  color:#fff;
-  display:grid;
-  place-items:center;
-  font-weight:900
-}
-
-.brand small{
-  display:block;
-  font-size:11px;
-  color:var(--muted);
-  font-weight:600;
-  letter-spacing:1px
-}
-
-.topright{
-  display:flex;
-  align-items:center;
-  gap:12px
-}
-
-.pill{
-  border:1px solid var(--line);
-  background:#fff;
-  padding:8px 12px;
-  border-radius:999px;
-  color:#475467;
-  font-size:13px
-}
-
-.avatar{
-  width:34px;
-  height:34px;
-  border-radius:50%;
-  background:#e9edff;
-  color:#315efb;
-  display:grid;
-  place-items:center;
-  font-weight:800
-}
-
-.layout{
-  display:grid;
-  grid-template-columns:245px 1fr;
-  max-width:1440px;
-  margin:auto;
-  min-height:calc(100vh - 68px)
-}
-
-aside{
-  padding:24px 16px;
-  border-right:1px solid var(--line);
-  background:#fbfcfe
-}
-
-.navlabel{
-  font-size:11px;
-  font-weight:800;
-  color:#98a2b3;
-  letter-spacing:1.2px;
-  padding:12px 12px 7px
-}
-
-.nav{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  width:100%;
-  border:0;
-  background:transparent;
-  padding:11px 12px;
-  border-radius:10px;
-  text-align:left;
-  color:#475467;
-  margin:2px 0
-}
-
-.nav:hover,.nav.active{
-  background:var(--blue2);
-  color:var(--blue);
-  font-weight:700
-}
-
-.nav .ico{
-  width:21px;
-  text-align:center;
-  font-size:17px
-}
-
-.asidebox{
-  margin:24px 5px 0;
-  padding:14px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:13px;
-  font-size:12px;
-  color:var(--muted)
-}
-
-main{
-  padding:30px;
-  max-width:1195px;
-  width:100%;
-  margin:auto
-}
-
-.welcome{
-  display:flex;
-  justify-content:space-between;
-  gap:20px;
-  align-items:flex-start;
-  margin-bottom:24px
-}
-
-.eyebrow{
-  color:var(--blue);
-  font-size:12px;
-  font-weight:800;
-  letter-spacing:1px;
-  text-transform:uppercase
-}
-
-.welcome h1{
-  font-size:29px;
-  line-height:1.2;
-  margin:7px 0
-}
-
-.welcome p{
-  color:var(--muted);
-  margin:0
-}
-
-.btn{
-  border:0;
-  background:var(--blue);
-  color:white;
-  padding:10px 16px;
-  border-radius:10px;
-  font-weight:700
-}
-
-.btn:hover{filter:brightness(.96)}
-.btn:disabled{opacity:.6;cursor:wait}
-
-.btn.secondary{
-  background:#fff;
-  color:#344054;
-  border:1px solid var(--line)
-}
-
-.btn.light{
-  background:var(--blue2);
-  color:var(--blue)
-}
-
+.top{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 26px;position:sticky;top:0;z-index:10}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.3px}
+.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#315efb,#7b61ff);color:#fff;display:grid;place-items:center;font-weight:900}
+.brand small{display:block;font-size:10px;color:var(--muted);font-weight:700;letter-spacing:1px}
+.topright{display:flex;align-items:center;gap:12px}
+.pill{border:1px solid var(--line);background:#fff;padding:7px 11px;border-radius:999px;color:#475467;font-size:12px}
+.avatar{width:35px;height:35px;border-radius:50%;background:#e9edff;color:#315efb;display:grid;place-items:center;font-weight:800}
+.layout{display:grid;grid-template-columns:245px minmax(0,1fr);max-width:1500px;margin:auto;min-height:calc(100vh - 68px)}
+aside{padding:22px 15px;border-right:1px solid var(--line);background:#fbfcfe}
+.navlabel{font-size:10px;font-weight:800;color:#98a2b3;letter-spacing:1.2px;padding:13px 12px 7px}
+.nav{display:flex;align-items:center;gap:11px;width:100%;border:0;background:transparent;padding:10px 12px;border-radius:10px;text-align:left;color:#475467;margin:2px 0}
+.nav:hover,.nav.active{background:var(--blue2);color:var(--blue);font-weight:750}
+.nav .ico{width:21px;text-align:center;font-size:17px}
+.asidebox{margin:23px 5px 0;padding:13px;background:#fff;border:1px solid var(--line);border-radius:12px;font-size:12px;color:var(--muted)}
+main{padding:29px;max-width:1240px;width:100%;margin:auto}
+.welcome{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:23px}
+.eyebrow{color:var(--blue);font-size:11px;font-weight:800;letter-spacing:1px}
+.welcome h1{font-size:29px;line-height:1.2;margin:7px 0}
+.welcome p,.panelhead p{color:var(--muted);margin:0}
+.btn{border:0;background:var(--blue);color:#fff;padding:10px 15px;border-radius:10px;font-weight:700}
+.btn:hover{filter:brightness(.97)}
+.btn.secondary{background:#fff;color:#344054;border:1px solid var(--line)}
+.btn.light{background:var(--blue2);color:var(--blue)}
+.btn.danger{background:#fff1f0;color:var(--red);border:1px solid #ffd6d2}
 .grid{display:grid;gap:16px}
-.stats{grid-template-columns:repeat(4,1fr);margin-bottom:20px}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:19px;
-  box-shadow:var(--shadow)
-}
-
+.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:19px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:var(--shadow);min-width:0}
 .statlabel{font-size:12px;color:var(--muted)}
-.statvalue{font-size:26px;font-weight:800;margin:5px 0}
+.statvalue{font-size:26px;font-weight:800;margin:4px 0}
 .statnote{font-size:12px;color:var(--green)}
-
 .cols{grid-template-columns:1.35fr 1fr}
-
-.sectionhead{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin:0 0 13px
-}
-
+.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 13px}
 .sectionhead h2{font-size:17px;margin:0}
 .muted{color:var(--muted)}
-
-.modulegrid{grid-template-columns:repeat(3,1fr)}
-
-.module{
-  padding:18px;
-  min-height:145px;
-  cursor:pointer;
-  transition:.15s
-}
-
-.module:hover{
-  transform:translateY(-2px);
-  border-color:#c6d2ff
-}
-
-.moduleicon{
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  background:var(--blue2);
-  display:grid;
-  place-items:center;
-  font-size:20px;
-  margin-bottom:13px
-}
-
+.modulegrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.module{padding:17px;min-height:140px;cursor:pointer;transition:.15s}
+.module:hover{transform:translateY(-2px);border-color:#c6d2ff}
+.moduleicon{width:40px;height:40px;border-radius:12px;background:var(--blue2);display:grid;place-items:center;font-size:20px;margin-bottom:12px}
 .module h3{font-size:15px;margin:0 0 5px}
 .module p{font-size:12px;color:var(--muted);margin:0}
-
-.tag{
-  font-size:11px;
-  border-radius:999px;
-  padding:4px 8px;
-  background:#f2f4f7;
-  color:#475467
-}
-
-.task{
-  display:flex;
-  justify-content:space-between;
-  gap:15px;
-  align-items:center;
-  padding:13px 0;
-  border-bottom:1px solid var(--line)
-}
-
+.tag{font-size:11px;border-radius:999px;padding:4px 8px;background:#f2f4f7;color:#475467;white-space:nowrap}
+.task{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
 .task:last-child{border:0}
 .task strong{display:block;font-size:14px}
 .task small{color:var(--muted)}
-
-.progress{
-  height:7px;
-  background:#eef1f6;
-  border-radius:20px;
-  overflow:hidden;
-  margin-top:9px
-}
-
-.progress span{
-  display:block;
-  height:100%;
-  background:var(--blue);
-  border-radius:20px
-}
-
-.page{display:none}
-.page.active{display:block}
-
-.panelhead{margin-bottom:20px}
-.panelhead h1{font-size:27px;margin:5px 0}
-.panelhead p{margin:0;color:var(--muted)}
-
-.exercise{max-width:900px}
-
-.label{
-  font-size:12px;
-  font-weight:800;
-  color:#667085;
-  letter-spacing:.5px;
-  text-transform:uppercase;
-  margin-bottom:8px
-}
-
-.prompt{
-  font-size:20px;
-  font-weight:650;
-  line-height:1.45;
-  background:#f8f9fc;
-  padding:18px;
-  border-radius:12px;
-  border:1px solid var(--line)
-}
-
-textarea,input,select{
-  width:100%;
-  border:1px solid #d8deea;
-  border-radius:10px;
-  padding:12px;
-  background:#fff;
-  color:var(--ink);
-  outline:none
-}
-
-textarea:focus,input:focus,select:focus{
-  border-color:#8ba2ff;
-  box-shadow:0 0 0 3px #315efb18
-}
-
+.progress{height:7px;background:#eef1f6;border-radius:20px;overflow:hidden;margin-top:8px}
+.progress span{display:block;height:100%;background:var(--blue);border-radius:20px}
+.page{display:none}.page.active{display:block}
+.panelhead{margin-bottom:19px}
+.panelhead h1{font-size:26px;margin:5px 0}
+.exercise{max-width:960px}
+.label{font-size:11px;font-weight:800;color:#667085;letter-spacing:.5px;margin-bottom:7px}
+.prompt{font-size:19px;font-weight:650;line-height:1.5;background:#f8f9fc;padding:17px;border-radius:12px;border:1px solid var(--line)}
+textarea,input,select{width:100%;border:1px solid #d8deea;border-radius:10px;padding:11px 12px;background:#fff;color:var(--ink);outline:none}
+textarea:focus,input:focus,select:focus{border-color:#8ba2ff;box-shadow:0 0 0 3px #315efb18}
 textarea{min-height:105px;resize:vertical}
-
-.actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-top:12px
-}
-
-.feedback{
-  margin-top:17px;
-  padding:16px;
-  border-radius:12px;
-  background:#f7f9fc;
-  border:1px solid var(--line);
-  display:none
-}
-
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.feedback{margin-top:17px;padding:17px;border-radius:13px;background:#f7f9fc;border:1px solid var(--line);display:none}
 .feedback.show{display:block}
-.feedback h3{margin-top:0}
-.feedback h4{margin-bottom:6px;margin-top:20px}
-.feedback p{margin-top:7px}
-
-.good{color:var(--green);font-weight:750}
-.bad{color:#b54708;font-weight:750}
+.feedback h3{font-size:19px;margin:0 0 12px}
+.feedback h4{font-size:15px;margin:20px 0 8px}
+.feedback p{margin:7px 0}
+.feedback ul{padding-left:22px}.feedback li{margin:7px 0}
+.good{color:var(--green);font-weight:750}.bad{color:var(--amber);font-weight:750}
 .hint{font-size:13px;color:var(--muted);margin-top:9px}
-
-.two{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px
-}
-
-.listitem{
-  padding:13px 0;
-  border-bottom:1px solid var(--line);
-  display:flex;
-  justify-content:space-between;
-  gap:12px
-}
-
+.dimension{padding:13px;margin:10px 0;background:#fff;border:1px solid var(--line);border-radius:11px}
+.dimension-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:8px}
+.dimension-head strong{font-size:14px}
+.dimension-head span{display:inline-block;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:750;white-space:nowrap;background:#f2f4f7;color:#475467}
+.dimension-head span.good{background:var(--green-bg);color:var(--green)}
+.dimension-head span.bad{background:var(--amber-bg);color:var(--amber)}
+.dimension p{margin:0;color:#475467}
+.correction{padding:13px;margin:10px 0;background:#fff;border:1px solid var(--line);border-radius:11px}
+.result-highlight{padding:14px;background:var(--blue2);border-radius:11px;margin:12px 0}
+.improved-box{padding:14px;background:var(--green-bg);border:1px solid #d5eee1;border-radius:11px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.listitem{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px;align-items:center}
 .listitem:last-child{border:0}
-
 .teacherform{display:grid;gap:13px}
-
-.teacherform label{
-  font-size:13px;
-  font-weight:700;
-  color:#475467;
-  display:grid;
-  gap:6px
+.teacherform label{font-size:13px;font-weight:700;color:#475467;display:grid;gap:6px}
+.notice{padding:13px 15px;background:#fff8eb;border:1px solid #f5dfb6;border-radius:11px;color:#81520b;font-size:13px}
+.empty{padding:25px;text-align:center;color:var(--muted)}
+.footer{font-size:12px;color:#98a2b3;text-align:center;padding:27px 0 8px}
+.vocab-card{cursor:pointer;min-height:205px}
+.vocab-card .word{font-size:24px;font-weight:800;margin:9px 0 0}
+.vocab-card .reveal{display:none;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.vocab-card.open .reveal{display:block}
+.recording{color:var(--red);font-weight:700}
+.answer-result{margin-top:12px;padding:12px;border-radius:10px;background:#f7f9fc;border:1px solid var(--line)}
+textarea.smallarea{min-height:78px}
+@media(max-width:950px){
+ .layout{grid-template-columns:1fr}
+ aside{border-right:0;border-bottom:1px solid var(--line);padding:8px 10px;display:flex;overflow-x:auto;gap:4px}
+ .navlabel,.asidebox{display:none}.nav{white-space:nowrap;width:auto;padding:9px 11px}.nav .ico{display:none}
+ main{padding:22px 16px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.cols{grid-template-columns:1fr}
 }
-
-.notice{
-  padding:13px 15px;
-  background:#fff8eb;
-  border:1px solid #f5dfb6;
-  border-radius:11px;
-  color:#81520b;
-  font-size:13px
-}
-
-.empty{
-  padding:28px;
-  text-align:center;
-  color:var(--muted)
-}
-
-.footer{
-  font-size:12px;
-  color:#98a2b3;
-  text-align:center;
-  padding:28px 0 10px
-}
-
-.feedback ul{padding-left:22px}
-.feedback li{margin:7px 0}
-.feedback h3{font-size:19px}
-.feedback h4{font-size:15px}
-
-.dimension{
-  padding:12px;
-  margin:9px 0;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:10px
-}
-
-.dimension-head{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap
-}
-
-.correction{
-  padding:12px;
-  margin:10px 0;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:10px
-}
-
-.result-highlight{
-  padding:14px;
-  background:#edf2ff;
-  border-radius:10px;
-  margin:12px 0
-}
-
-.improved-box{
-  padding:14px;
-  background:#edf8f2;
-  border-radius:10px
-}
-
-@media(max-width:900px){
-  .layout{grid-template-columns:1fr}
-  aside{
-    border-right:0;
-    border-bottom:1px solid var(--line);
-    padding:9px 12px;
-    display:flex;
-    overflow:auto;
-    gap:5px
-  }
-  .navlabel,.asidebox{display:none}
-  .nav{white-space:nowrap;width:auto;padding:9px 11px}
-  .nav .ico{display:none}
-  main{padding:22px 16px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .cols{grid-template-columns:1fr}
-  .modulegrid{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:560px){
-  .top{padding:0 14px}
-  .topright .pill{display:none}
-  .welcome{display:block}
-  .welcome .btn{margin-top:15px}
-  .stats{gap:9px}
-  .card{padding:15px}
-  .modulegrid{grid-template-columns:1fr 1fr}
-  .module{padding:13px;min-height:135px}
-  .two{grid-template-columns:1fr}
-  .welcome h1{font-size:25px}
-  .prompt{font-size:17px}
+@media(max-width:620px){
+ .top{padding:0 13px}.topright{gap:7px}.topright .pill{display:none}
+ .welcome{display:block}.welcome .btn{margin-top:14px}
+ main{padding:18px 12px}.card{padding:15px}
+ .modulegrid{grid-template-columns:repeat(2,minmax(0,1fr))}.module{padding:13px;min-height:132px}
+ .two{grid-template-columns:1fr}.welcome h1{font-size:25px}.prompt{font-size:17px}
+ .stats{gap:9px}.statvalue{font-size:23px}
 }
 </style>
 </head>
-
 <body>
 <div class="app">
-
 <header class="top">
-  <div class="brand">
-    <div class="logo">MN</div>
-    <div>
-      English Learning MN
-      <small>TEACHER & STUDENT PLATFORM</small>
-    </div>
-  </div>
-
+  <div class="brand"><div class="logo">MN</div><div>English Learning MN<small>TEACHER & STUDENT PLATFORM</small></div></div>
   <div class="topright">
-    <span class="pill">● Bản thử nghiệm</span>
+    <span class="pill">● Bản thử nghiệm V1.1</span>
     <select id="roleSelect" class="pill" style="width:auto" aria-label="Chọn vai trò">
-      <option value="student">Giao diện học sinh</option>
-      <option value="teacher">Giao diện giáo viên</option>
+      <option value="student">Giao diện học sinh</option><option value="teacher">Giao diện giáo viên</option>
     </select>
     <div class="avatar">EL</div>
   </div>
 </header>
-
 <div class="layout">
-
 <aside>
   <div class="navlabel">KHÔNG GIAN HỌC TẬP</div>
   <button class="nav active" data-page="home"><span class="ico">⌂</span>Tổng quan</button>
-
   <div class="navlabel">CÁC PHÒNG LUYỆN TẬP</div>
   <button class="nav" data-page="translation"><span class="ico">⇄</span>Luyện dịch</button>
   <button class="nav" data-page="speaking"><span class="ico">🎙</span>Luyện nói</button>
@@ -533,1136 +147,492 @@ textarea{min-height:105px;resize:vertical}
   <button class="nav" data-page="writing"><span class="ico">✎</span>Luyện viết</button>
   <button class="nav" data-page="listening"><span class="ico">♫</span>Luyện nghe</button>
   <button class="nav" data-page="reading"><span class="ico">▣</span>Luyện đọc</button>
-
   <div class="navlabel">QUẢN LÝ</div>
   <button class="nav teacher-only" data-page="teacher"><span class="ico">▥</span>Không gian giáo viên</button>
   <button class="nav" data-page="progress"><span class="ico">↗</span>Tiến độ học tập</button>
-
-  <div class="asidebox">
-    <strong>Thông tin bản thử nghiệm</strong><br>
-    Đây là phiên bản mô phỏng tương tác chạy trên trình duyệt. Dữ liệu hiện được lưu cục bộ trên thiết bị.
-  </div>
+  <div class="asidebox"><strong>Thông tin dữ liệu</strong><br>Các hoạt động và bài tập tự tạo được lưu trên trình duyệt hiện tại. Đây chưa phải hệ thống tài khoản dùng chung giữa nhiều thiết bị.</div>
 </aside>
-
 <main>
 
-<!-- TRANG TỔNG QUAN -->
 <section class="page active" id="home">
-
-  <div class="welcome">
-    <div>
-      <div class="eyebrow">TỔNG QUAN HỌC TẬP</div>
-      <h1>Chào mừng bạn! 👋</h1>
-      <p>Chào mừng bạn đến với không gian luyện tập tiếng Anh.</p>
-    </div>
-    <button class="btn" onclick="go('translation')">Bắt đầu luyện tập →</button>
+ <div class="welcome">
+  <div><div class="eyebrow">TỔNG QUAN HỌC TẬP</div><h1>Chào mừng bạn! 👋</h1><p>Chọn một phòng luyện tập để bắt đầu học tiếng Anh.</p></div>
+  <button class="btn" onclick="go('translation')">Bắt đầu luyện tập →</button>
+ </div>
+ <div class="grid stats">
+  <div class="card"><div class="statlabel">Hoạt động đã hoàn thành</div><div class="statvalue" id="statDone">0</div><div class="statnote">Được cập nhật tự động</div></div>
+  <div class="card"><div class="statlabel">Số lần nhận phản hồi AI</div><div class="statvalue" id="statAI">0</div><div class="statnote">Trong trình duyệt này</div></div>
+  <div class="card"><div class="statlabel">Từ vựng đã đánh dấu</div><div class="statvalue" id="statVocab">0</div><div class="statnote">Từ đã lưu để ôn tập</div></div>
+  <div class="card"><div class="statlabel">Bài tập giáo viên tạo</div><div class="statvalue" id="statTasks">0</div><div class="statnote">Lưu cục bộ</div></div>
+ </div>
+ <div class="grid cols">
+  <div class="card">
+   <div class="sectionhead"><h2>Các phòng luyện tập</h2><span class="tag">6 phòng</span></div>
+   <div class="grid modulegrid">
+    <div class="card module" onclick="go('translation')"><div class="moduleicon">⇄</div><h3>Translation Lab</h3><p>Luyện dịch câu và nhận phản hồi AI.</p></div>
+    <div class="card module" onclick="go('speaking')"><div class="moduleicon">🎙</div><h3>Speaking Lab</h3><p>Luyện trả lời và ghi âm.</p></div>
+    <div class="card module" onclick="go('vocabulary')"><div class="moduleicon">▤</div><h3>Vocabulary Lab</h3><p>Học từ, cụm từ và ví dụ.</p></div>
+    <div class="card module" onclick="go('writing')"><div class="moduleicon">✎</div><h3>Writing Lab</h3><p>Lập ý tưởng và luyện viết.</p></div>
+    <div class="card module" onclick="go('listening')"><div class="moduleicon">♫</div><h3>Listening Lab</h3><p>Nghe câu mẫu và trả lời.</p></div>
+    <div class="card module" onclick="go('reading')"><div class="moduleicon">▣</div><h3>Reading Lab</h3><p>Đọc hiểu và tìm bằng chứng.</p></div>
+   </div>
   </div>
-
-  <div class="grid stats">
-    <div class="card">
-      <div class="statlabel">Bài đã hoàn thành</div>
-      <div class="statvalue" id="statDone">3</div>
-      <div class="statnote">Hãy tiếp tục duy trì nhé</div>
-    </div>
-
-    <div class="card">
-      <div class="statlabel">Thời gian học</div>
-      <div class="statvalue">45 <small style="font-size:13px">phút</small></div>
-      <div class="statnote">Trong tuần này</div>
-    </div>
-
-    <div class="card">
-      <div class="statlabel">Từ vựng đã học</div>
-      <div class="statvalue">28</div>
-      <div class="statnote">Theo dõi và ôn tập</div>
-    </div>
-
-    <div class="card">
-      <div class="statlabel">Tiến độ mục tiêu</div>
-      <div class="statvalue">35%</div>
-      <div class="progress"><span style="width:35%"></span></div>
-    </div>
+  <div class="card">
+   <div class="sectionhead"><h2>Tiếp tục học tập</h2><span class="tag">Gợi ý</span></div>
+   <div class="task"><div><strong>Luyện dịch: Thời gian rảnh</strong><small>3 câu · A2–B1</small></div><button class="btn light" onclick="go('translation')">Mở bài</button></div>
+   <div class="task"><div><strong>Luyện nói: Sở thích</strong><small>3 câu hỏi · B1</small></div><button class="btn light" onclick="go('speaking')">Mở bài</button></div>
+   <div class="task"><div><strong>Từ vựng: Học thuật cơ bản</strong><small>3 từ · B1</small></div><button class="btn light" onclick="go('vocabulary')">Mở bài</button></div>
+   <div class="notice" style="margin-top:15px">Translation Lab đã kết nối với AI qua Netlify Function. Những phòng khác hiện cung cấp công cụ luyện tập cơ bản chạy trên trình duyệt.</div>
   </div>
-
-  <div class="grid cols">
-
-    <div class="card">
-      <div class="sectionhead">
-        <h2>Các phòng luyện tập</h2>
-        <span class="tag">6 phòng</span>
-      </div>
-
-      <div class="grid modulegrid">
-
-        <div class="card module" onclick="go('translation')">
-          <div class="moduleicon">⇄</div>
-          <h3>Translation Lab</h3>
-          <p>Luyện dịch và xây dựng câu.</p>
-        </div>
-
-        <div class="card module" onclick="go('speaking')">
-          <div class="moduleicon">🎙</div>
-          <h3>Speaking Lab</h3>
-          <p>Luyện nói và ghi âm.</p>
-        </div>
-
-        <div class="card module" onclick="go('vocabulary')">
-          <div class="moduleicon">▤</div>
-          <h3>Vocabulary Lab</h3>
-          <p>Từ vựng và cụm từ.</p>
-        </div>
-
-        <div class="card module" onclick="go('writing')">
-          <div class="moduleicon">✎</div>
-          <h3>Writing Lab</h3>
-          <p>Luyện viết câu, đoạn và bài luận.</p>
-        </div>
-
-        <div class="card module" onclick="go('listening')">
-          <div class="moduleicon">♫</div>
-          <h3>Listening Lab</h3>
-          <p>Luyện nghe theo dạng bài.</p>
-        </div>
-
-        <div class="card module" onclick="go('reading')">
-          <div class="moduleicon">▣</div>
-          <h3>Reading Lab</h3>
-          <p>Đọc hiểu và tìm bằng chứng.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="sectionhead">
-        <h2>Tiếp tục học tập</h2>
-        <span class="tag">Gợi ý</span>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Luyện dịch: Hoạt động thời gian rảnh</strong>
-          <small>3 câu · A2–B1</small>
-        </div>
-        <button class="btn light" onclick="go('translation')">Mở bài</button>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Luyện nói: Sở thích</strong>
-          <small>5 câu hỏi · B1</small>
-        </div>
-        <button class="btn light" onclick="go('speaking')">Mở bài</button>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Từ vựng: Giáo dục</strong>
-          <small>12 từ · B1–B2</small>
-        </div>
-        <button class="btn light" onclick="go('vocabulary')">Mở bài</button>
-      </div>
-
-      <div class="notice" style="margin-top:15px">
-        Translation Lab đã được kết nối với AI để phân tích và nhận xét câu trả lời. Các phòng luyện tập khác sẽ được tích hợp ở những bước tiếp theo.
-      </div>
-    </div>
-
-  </div>
+ </div>
 </section>
 
-<!-- TRANSLATION LAB -->
 <section class="page" id="translation">
-
-  <div class="panelhead">
-    <div class="eyebrow">MODULE 01</div>
-    <h1>Translation Lab – Luyện dịch câu</h1>
-    <p>Dịch câu tiếng Việt sang tiếng Anh. AI sẽ phân tích ý nghĩa, ngữ pháp, từ vựng và cách diễn đạt của bạn.</p>
+ <div class="panelhead"><div class="eyebrow">MODULE 01</div><h1>Translation Lab – Luyện dịch câu</h1><p>Dịch câu tiếng Việt sang tiếng Anh. AI phân tích ý nghĩa, ngữ pháp, từ vựng và độ tự nhiên.</p></div>
+ <div class="card exercise">
+  <div class="sectionhead"><span class="tag">A2–B1 · Cuộc sống hằng ngày</span><span class="muted" id="qCount">Câu 1 / 3</span></div>
+  <div class="label">Dịch câu sau sang tiếng Anh</div><div class="prompt" id="viPrompt"></div>
+  <div style="margin-top:17px"><div class="label">Câu trả lời của bạn</div><textarea id="translationAnswer" placeholder="Nhập câu trả lời bằng tiếng Anh tại đây..."></textarea></div>
+  <div class="actions">
+   <button class="btn" id="checkTranslationButton" onclick="checkTranslation()">Kiểm tra bằng AI</button>
+   <button class="btn secondary" onclick="showHint()">Gợi ý</button>
+   <button class="btn secondary" onclick="showModel()">Đáp án tham khảo</button>
+   <button class="btn secondary" onclick="nextQuestion()">Câu tiếp theo →</button>
   </div>
-
-  <div class="card exercise">
-
-    <div class="sectionhead">
-      <span class="tag">A2–B1 · Cuộc sống hằng ngày</span>
-      <span class="muted" id="qCount">Câu 1 / 3</span>
-    </div>
-
-    <div class="label">Dịch câu sau sang tiếng Anh</div>
-
-    <div class="prompt" id="viPrompt">
-      Tôi thường dành thời gian rảnh để đọc sách vì nó giúp tôi giảm căng thẳng.
-    </div>
-
-    <div style="margin-top:17px">
-      <div class="label">Câu trả lời của bạn</div>
-      <textarea id="translationAnswer" placeholder="Nhập câu trả lời bằng tiếng Anh tại đây..."></textarea>
-    </div>
-
-    <div class="actions">
-      <button class="btn" id="checkTranslationButton" onclick="checkTranslation()">Kiểm tra bằng AI</button>
-      <button class="btn secondary" onclick="showHint()">Gợi ý</button>
-      <button class="btn secondary" onclick="showModel()">Xem đáp án tham khảo</button>
-      <button class="btn secondary" onclick="nextQuestion()">Câu tiếp theo →</button>
-    </div>
-
-    <div class="hint" id="hintText"></div>
-    <div class="feedback" id="translationFeedback" aria-live="polite"></div>
-
-  </div>
+  <div class="hint" id="hintText"></div><div class="feedback" id="translationFeedback" aria-live="polite"></div>
+ </div>
 </section>
 
-<!-- SPEAKING LAB -->
 <section class="page" id="speaking">
-
-  <div class="panelhead">
-    <div class="eyebrow">MODULE 02</div>
-    <h1>Speaking Lab – Luyện nói</h1>
-    <p>Luyện tập các câu hỏi theo dạng IELTS, chuẩn bị ý tưởng và ghi âm câu trả lời.</p>
+ <div class="panelhead"><div class="eyebrow">MODULE 02</div><h1>Speaking Lab – Luyện nói</h1><p>Chuẩn bị ý tưởng, luyện trả lời và ghi âm để tự nghe lại.</p></div>
+ <div class="grid cols">
+  <div class="card">
+   <div class="sectionhead"><h2>Part 1 · Free time</h2><span class="tag">B1</span></div>
+   <div class="label" id="sQuestionCount">Câu hỏi 1 / 3</div><div class="prompt" id="sQuestion"></div>
+   <div class="actions"><button class="btn secondary" onclick="nextSpeaking()">Câu hỏi tiếp theo</button><button class="btn secondary" onclick="speakQuestion()">🔊 Nghe câu hỏi</button></div>
+   <div style="margin-top:18px"><div class="label">Ghi chú / Câu trả lời</div><textarea id="sAnswer" placeholder="Lập ý hoặc viết câu trả lời của bạn..."></textarea></div>
+   <div class="actions"><button class="btn" id="recordButton" onclick="startRecording()">● Bắt đầu ghi âm</button><button class="btn secondary" onclick="stopRecording()">Dừng ghi âm</button></div>
+   <div class="hint" id="recordStatus" aria-live="polite">Cho phép trình duyệt truy cập micro khi được hỏi. Bản ghi chỉ được xử lý trong trình duyệt.</div>
+   <audio id="recordPlayback" controls style="display:none;width:100%;margin-top:12px"></audio>
+   <a id="downloadRecording" style="display:none" download="speaking-practice.webm">Tải bản ghi âm</a>
   </div>
-
-  <div class="grid cols">
-
-    <div class="card">
-      <div class="sectionhead">
-        <h2>Phần 1 · Sở thích</h2>
-        <span class="tag">B1</span>
-      </div>
-
-      <div class="label">Câu hỏi 1 trong 3</div>
-      <div class="prompt" id="sQuestion">What do you usually do in your free time?</div>
-
-      <div class="actions">
-        <button class="btn secondary" onclick="nextSpeaking()">Câu hỏi tiếp theo</button>
-        <button class="btn secondary" onclick="speakQuestion()">🔊 Nghe câu hỏi</button>
-      </div>
-
-      <div style="margin-top:18px">
-        <div class="label">Ghi chú / Câu trả lời</div>
-        <textarea id="sAnswer" placeholder="Chuẩn bị câu trả lời tại đây..."></textarea>
-      </div>
-
-      <div class="actions">
-        <button class="btn" onclick="startRecording()">● Bắt đầu ghi âm</button>
-        <button class="btn secondary" onclick="stopRecording()">Dừng ghi âm</button>
-      </div>
-
-      <div class="hint" id="recordStatus">
-        Trình duyệt có thể yêu cầu quyền sử dụng micro. Âm thanh không được tải lên trong phiên bản thử nghiệm này.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2 style="font-size:17px;margin-top:0">Dàn ý trả lời</h2>
-
-      <div class="task">
-        <div>
-          <strong>Trả lời trực tiếp</strong>
-          <small>Trả lời rõ ràng câu hỏi.</small>
-        </div>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Lý do</strong>
-          <small>Giải thích tại sao bạn thích hoạt động đó.</small>
-        </div>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Ví dụ / Chi tiết</strong>
-          <small>Thêm một ví dụ cụ thể.</small>
-        </div>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Từ vựng hữu ích</strong>
-          <small>in my spare time · unwind · take up a hobby</small>
-        </div>
-      </div>
-
-      <div class="notice">
-        Chức năng đánh giá kỹ năng nói bằng AI sẽ được tích hợp trong phiên bản sau. Đánh giá phát âm thực sự cần xử lý dữ liệu âm thanh.
-      </div>
-    </div>
-
+  <div class="card"><h2 style="font-size:17px;margin-top:0">Dàn ý trả lời gợi ý</h2>
+   <div class="task"><div><strong>1. Trả lời trực tiếp</strong><small>Nêu rõ hoạt động bạn thường làm.</small></div></div>
+   <div class="task"><div><strong>2. Lý do</strong><small>Giải thích vì sao bạn thích hoạt động đó.</small></div></div>
+   <div class="task"><div><strong>3. Ví dụ / Chi tiết</strong><small>Thêm thời gian, địa điểm hoặc người cùng tham gia.</small></div></div>
+   <div class="task"><div><strong>Từ vựng hữu ích</strong><small>in my spare time · unwind · take up a hobby</small></div></div>
+   <div class="notice">Phiên bản này hỗ trợ ghi âm và nghe lại, chưa có chức năng AI phân tích phát âm hoặc chấm điểm âm thanh.</div>
   </div>
+ </div>
 </section>
 
-<!-- VOCABULARY LAB -->
 <section class="page" id="vocabulary">
-
-  <div class="panelhead">
-    <div class="eyebrow">MODULE 03</div>
-    <h1>Vocabulary Lab – Từ vựng</h1>
-    <p>Học từ vựng theo ngữ cảnh, kèm phiên âm, cụm từ thường dùng và ví dụ.</p>
-  </div>
-
-  <div class="grid modulegrid">
-
-    <div class="card">
-      <span class="tag">Động từ · B1</span>
-      <h2 style="margin-bottom:3px">unwind</h2>
-      <div class="muted">/ˌʌnˈwaɪnd/</div>
-      <p>thư giãn, nghỉ ngơi sau khi căng thẳng</p>
-      <strong>Cụm từ thường dùng</strong>
-      <p>unwind after work · unwind by reading</p>
-      <strong>Ví dụ</strong>
-      <p>I listen to music to unwind after a busy day.</p>
-    </div>
-
-    <div class="card">
-      <span class="tag">Động từ · B1</span>
-      <h2 style="margin-bottom:3px">broaden</h2>
-      <div class="muted">/ˈbrɔːdn/</div>
-      <p>mở rộng</p>
-      <strong>Cụm từ thường dùng</strong>
-      <p>broaden your knowledge · broaden your horizons</p>
-      <strong>Ví dụ</strong>
-      <p>Travelling can broaden our horizons.</p>
-    </div>
-
-    <div class="card">
-      <span class="tag">Danh từ · B1</span>
-      <h2 style="margin-bottom:3px">benefit</h2>
-      <div class="muted">/ˈbenɪfɪt/</div>
-      <p>lợi ích</p>
-      <strong>Cụm từ thường dùng</strong>
-      <p>bring benefits · health benefits</p>
-      <strong>Ví dụ</strong>
-      <p>Volunteering brings benefits to local communities.</p>
-    </div>
-
-  </div>
+ <div class="panelhead"><div class="eyebrow">MODULE 03</div><h1>Vocabulary Lab – Từ vựng</h1><p>Chọn thẻ từ để xem nghĩa, cụm từ thường dùng và ví dụ. Có thể đánh dấu từ cần ôn tập.</p></div>
+ <div class="grid modulegrid" id="vocabGrid"></div>
+ <div class="card" style="margin-top:16px"><div class="sectionhead"><h2>Từ đã đánh dấu</h2><span class="tag" id="savedVocabCount">0 từ</span></div><div id="savedVocabList" class="muted">Bạn chưa đánh dấu từ nào.</div></div>
 </section>
 
-<!-- WRITING LAB -->
 <section class="page" id="writing">
-
-  <div class="panelhead">
-    <div class="eyebrow">MODULE 04</div>
-    <h1>Writing Lab – Luyện viết</h1>
-    <p>Lập ý tưởng, cải thiện câu và phát triển đoạn văn.</p>
+ <div class="panelhead"><div class="eyebrow">MODULE 04</div><h1>Writing Lab – Luyện viết</h1><p>Lập ý tưởng, phát triển luận điểm và lưu bản nháp trên thiết bị.</p></div>
+ <div class="grid cols">
+  <div class="card">
+   <span class="tag">IELTS Writing Task 2 · B1–B2</span><h2 style="font-size:18px">Đề bài luyện viết</h2>
+   <p class="muted">Some people think that young people should take part in community service. To what extent do you agree or disagree?</p>
+   <div class="label">Luận điểm chính</div><textarea id="writingIdea" class="smallarea" placeholder="Nêu quan điểm và luận điểm chính..."></textarea>
+   <div class="label" style="margin-top:12px">Giải thích và ví dụ</div><textarea id="writingSupport" placeholder="Giải thích vì sao luận điểm hợp lý. Thêm ví dụ cụ thể..."></textarea>
+   <div class="label" style="margin-top:12px">Bản nháp bài viết</div><textarea id="writingDraft" style="min-height:190px" placeholder="Viết phần mở bài, thân bài hoặc toàn bộ bài luận..."></textarea>
+   <div class="actions"><button class="btn" onclick="saveWriting()">Lưu bản nháp</button><button class="btn secondary" onclick="clearWriting()">Xóa nội dung</button></div>
+   <div class="hint" id="writingStatus">Bản nháp được lưu cục bộ trên trình duyệt.</div>
   </div>
-
-  <div class="grid cols">
-
-    <div class="card">
-      <span class="tag">IELTS Writing Task 2</span>
-      <h2 style="font-size:18px">Không gian lập ý tưởng</h2>
-
-      <p class="muted">
-        Chủ đề: Một số người cho rằng người trẻ nên tham gia các hoạt động tình nguyện trong cộng đồng. Bạn đồng ý hay không đồng ý?
-      </p>
-
-      <label class="label">Ý chính của bạn</label>
-      <textarea placeholder="Viết luận điểm chính của bạn..."></textarea>
-
-      <label class="label" style="display:block;margin-top:12px">Giải thích và ví dụ hỗ trợ</label>
-      <textarea placeholder="Phát triển ý tưởng của bạn..."></textarea>
-
-      <button class="btn" style="margin-top:12px" onclick="alert('Chức năng nhận xét ý tưởng bằng AI sẽ được tích hợp trong phiên bản sau.')">
-        Kiểm tra ý tưởng
-      </button>
-    </div>
-
-    <div class="card">
-      <h2 style="font-size:17px">Công cụ hỗ trợ viết</h2>
-
-      <div class="task">
-        <div>
-          <strong>Diễn đạt lại câu</strong>
-          <small>Viết lại mà không làm thay đổi ý nghĩa.</small>
-        </div>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Xây dựng câu</strong>
-          <small>Kết hợp ý tưởng bằng cấu trúc câu phức.</small>
-        </div>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Phát triển đoạn văn</strong>
-          <small>Câu chủ đề → Giải thích → Ví dụ.</small>
-        </div>
-      </div>
-
-      <div class="task">
-        <div>
-          <strong>Nhận xét bài luận</strong>
-          <small>Trả lời đề bài, mạch lạc, từ vựng và ngữ pháp.</small>
-        </div>
-      </div>
-    </div>
-
+  <div class="card"><h2 style="font-size:17px;margin-top:0">Quy trình phát triển đoạn văn</h2>
+   <div class="task"><div><strong>1. Topic sentence</strong><small>Nêu ý chính của đoạn.</small></div></div>
+   <div class="task"><div><strong>2. Explanation</strong><small>Giải thích cơ chế hoặc lý do.</small></div></div>
+   <div class="task"><div><strong>3. Example</strong><small>Đưa ra ví dụ phù hợp.</small></div></div>
+   <div class="task"><div><strong>4. Linking sentence</strong><small>Kết nối với luận điểm hoặc đoạn tiếp theo.</small></div></div>
+   <div class="notice">Bản V1.1 chưa gửi bài viết đến AI. Chức năng nhận xét bài luận sẽ được tích hợp riêng sau khi thống nhất tiêu chí đánh giá.</div>
   </div>
+ </div>
 </section>
 
-<!-- LISTENING LAB -->
 <section class="page" id="listening">
-
-  <div class="panelhead">
-    <div class="eyebrow">MODULE 05</div>
-    <h1>Listening Lab – Luyện nghe</h1>
-    <p>Luyện nghe với bài tập, bản ghi nội dung và giải thích đáp án.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag">Bài tập minh họa · A2</span>
-    <h2 style="font-size:18px">Thông báo ngắn</h2>
-
-    <p>Nghe câu mẫu và hoàn thành thông tin còn thiếu.</p>
-
-    <button class="btn secondary" onclick="say('The school library opens at eight thirty and closes at five thirty every weekday.')">
-      🔊 Phát âm thanh
-    </button>
-
-    <p style="margin-top:18px">
-      Thư viện mở cửa lúc
-      <input id="listenAnswer" style="width:130px;display:inline-block" placeholder="...">
-      vào các ngày trong tuần.
-    </p>
-
-    <button class="btn" onclick="alert('Đáp án mẫu: eight thirty / 8:30. Các bài nghe đầy đủ sẽ được bổ sung trong phần quản lý nội dung.')">
-      Kiểm tra đáp án
-    </button>
-  </div>
+ <div class="panelhead"><div class="eyebrow">MODULE 05</div><h1>Listening Lab – Luyện nghe</h1><p>Nghe câu mẫu bằng chức năng đọc văn bản của trình duyệt và hoàn thành thông tin.</p></div>
+ <div class="card exercise">
+  <span class="tag">Bài nghe minh họa · A2</span><h2 style="font-size:18px">Thông báo về thư viện trường học</h2>
+  <p>Nghe thông báo. Bạn có thể phát lại nhiều lần trước khi trả lời.</p>
+  <div class="actions"><button class="btn" onclick="playListening()">🔊 Phát bài nghe</button><button class="btn secondary" onclick="stopListening()">Dừng</button></div>
+  <div class="notice" style="margin-top:13px">Lưu ý: Đây là giọng đọc tổng hợp của trình duyệt, không phải bản ghi âm người bản ngữ.</div>
+  <p style="margin-top:20px">The school library opens at <input id="listenAnswer" style="width:145px;display:inline-block" placeholder="your answer"> every weekday.</p>
+  <button class="btn" onclick="checkListening()">Kiểm tra đáp án</button><div class="answer-result" id="listeningResult" style="display:none" aria-live="polite"></div>
+ </div>
 </section>
 
-<!-- READING LAB -->
 <section class="page" id="reading">
-
-  <div class="panelhead">
-    <div class="eyebrow">MODULE 06</div>
-    <h1>Reading Lab – Luyện đọc</h1>
-    <p>Luyện đọc chủ động, tìm bằng chứng và hiểu cách diễn đạt lại.</p>
-  </div>
-
-  <div class="card">
-    <span class="tag">Bài đọc minh họa · B1</span>
-    <h2 style="font-size:18px">Giá trị của hoạt động tình nguyện</h2>
-
-    <p>
-      Volunteering gives young people opportunities to develop practical skills and build relationships. By working with others, they can improve their communication and teamwork skills. At the same time, local communities benefit from the time and effort volunteers contribute.
-    </p>
-
-    <div class="label">Câu hỏi</div>
-    <p>Người trẻ có thể phát triển kỹ năng nào thông qua hoạt động tình nguyện?</p>
-
-    <select id="readingChoice">
-      <option value="">Chọn đáp án</option>
-      <option>Chỉ kỹ năng nấu ăn</option>
-      <option>Kỹ năng giao tiếp và làm việc nhóm</option>
-      <option>Kỹ năng lái xe</option>
-    </select>
-
-    <button class="btn" style="margin-top:12px" onclick="alert(document.getElementById('readingChoice').value==='Kỹ năng giao tiếp và làm việc nhóm'?'Chính xác! Bằng chứng: improve their communication and teamwork skills.':'Hãy thử lại. Tìm câu đề cập đến các kỹ năng.')">
-      Kiểm tra đáp án
-    </button>
-  </div>
+ <div class="panelhead"><div class="eyebrow">MODULE 06</div><h1>Reading Lab – Luyện đọc</h1><p>Đọc đoạn văn, xác định thông tin và tìm bằng chứng trong bài.</p></div>
+ <div class="card exercise">
+  <span class="tag">Bài đọc minh họa · B1</span><h2 style="font-size:18px">The value of volunteering</h2>
+  <p>Volunteering gives young people opportunities to develop practical skills and build relationships. By working with others, they can improve their communication and teamwork skills. At the same time, local communities benefit from the time and effort volunteers contribute. Some volunteers also discover new interests and become more confident when they take responsibility for meaningful tasks.</p>
+  <div class="label" style="margin-top:20px">Câu 1. Người trẻ có thể phát triển những kỹ năng nào thông qua hoạt động tình nguyện?</div>
+  <select id="readingChoice"><option value="">Chọn đáp án</option><option value="a">Chỉ kỹ năng nấu ăn</option><option value="b">Kỹ năng giao tiếp và làm việc nhóm</option><option value="c">Kỹ năng lái xe</option></select>
+  <div class="actions"><button class="btn" onclick="checkReading()">Kiểm tra đáp án</button></div>
+  <div class="answer-result" id="readingResult" style="display:none" aria-live="polite"></div>
+ </div>
 </section>
 
-<!-- TEACHER STUDIO -->
 <section class="page" id="teacher">
-
-  <div class="panelhead">
-    <div class="eyebrow">KHÔNG GIAN GIÁO VIÊN</div>
-    <h1>Teacher Studio</h1>
-    <p>Tạo và quản lý nội dung học tập. Bản thử nghiệm lưu bài tập mới trên trình duyệt hiện tại.</p>
+ <div class="panelhead"><div class="eyebrow">KHÔNG GIAN GIÁO VIÊN</div><h1>Teacher Studio</h1><p>Tạo và quản lý bài tập mẫu. Nội dung được lưu trên trình duyệt hiện tại.</p></div>
+ <div class="grid cols">
+  <div class="card"><h2 style="font-size:18px;margin-top:0">Tạo bài tập</h2>
+   <form class="teacherform" id="createForm">
+    <label>Tên bài tập<input id="newTitle" required placeholder="Ví dụ: Unit 4 – Community service"></label>
+    <label>Phòng luyện tập<select id="newModule"><option>Translation</option><option>Speaking</option><option>Vocabulary</option><option>Writing</option><option>Listening</option><option>Reading</option></select></label>
+    <label>Trình độ<select id="newLevel"><option>A1</option><option>A2</option><option selected>B1</option><option>B2</option><option>C1</option></select></label>
+    <label>Hướng dẫn / Câu hỏi<textarea id="newPrompt" required placeholder="Nhập câu hỏi hoặc yêu cầu bài tập..."></textarea></label>
+    <label>Đáp án tham khảo (không bắt buộc)<textarea id="newModel" placeholder="Nhập đáp án gợi ý hoặc hướng dẫn chấm..."></textarea></label>
+    <button class="btn" type="submit">＋ Lưu bài tập</button>
+   </form>
   </div>
-
-  <div class="grid cols">
-
-    <div class="card">
-      <h2 style="font-size:18px;margin-top:0">Tạo bài tập</h2>
-
-      <form class="teacherform" id="createForm">
-
-        <label>
-          Tên bài tập
-          <input id="newTitle" required placeholder="Ví dụ: Unit 4 – Community service">
-        </label>
-
-        <label>
-          Phòng luyện tập
-          <select id="newModule">
-            <option>Translation</option>
-            <option>Speaking</option>
-            <option>Vocabulary</option>
-            <option>Writing</option>
-            <option>Listening</option>
-            <option>Reading</option>
-          </select>
-        </label>
-
-        <label>
-          Trình độ
-          <select id="newLevel">
-            <option>A1</option>
-            <option>A2</option>
-            <option>B1</option>
-            <option>B2</option>
-            <option>C1</option>
-          </select>
-        </label>
-
-        <label>
-          Hướng dẫn / Câu hỏi
-          <textarea id="newPrompt" required placeholder="Nhập câu hỏi hoặc yêu cầu bài tập..."></textarea>
-        </label>
-
-        <label>
-          Đáp án tham khảo (không bắt buộc)
-          <textarea id="newModel" placeholder="Nhập đáp án gợi ý hoặc hướng dẫn chấm..."></textarea>
-        </label>
-
-        <button class="btn" type="submit">＋ Lưu bài tập</button>
-
-      </form>
-    </div>
-
-    <div class="card">
-      <div class="sectionhead">
-        <h2>Thư viện nội dung của tôi</h2>
-        <span class="tag" id="contentCount">0 bài</span>
-      </div>
-
-      <div id="contentList" class="muted">Các bài tập đã tạo sẽ xuất hiện ở đây.</div>
-
-      <div class="notice" style="margin-top:16px">
-        Phiên bản sau: tải lên DOCX/PDF, nhập câu hỏi hàng loạt, giao bài cho lớp, thiết lập hạn nộp, rubric và thống kê kết quả học sinh.
-      </div>
-    </div>
-
+  <div class="card"><div class="sectionhead"><h2>Thư viện nội dung</h2><span class="tag" id="contentCount">0 bài</span></div><div id="contentList" class="muted">Các bài tập đã tạo sẽ xuất hiện ở đây.</div>
+   <div class="notice" style="margin-top:16px">Các bài tập hiện chỉ được lưu trong trình duyệt này. Chưa có chức năng giao bài, tài khoản lớp học hoặc đồng bộ dữ liệu trực tuyến.</div>
   </div>
+ </div>
 </section>
 
-<!-- MY PROGRESS -->
 <section class="page" id="progress">
-
-  <div class="panelhead">
-    <div class="eyebrow">THỐNG KÊ HỌC TẬP</div>
-    <h1>Tiến độ học tập</h1>
-    <p>Tổng quan hoạt động luyện tập trong phiên bản thử nghiệm này.</p>
-  </div>
-
-  <div class="grid stats">
-
-    <div class="card">
-      <div class="statlabel">Bài tập đã hoàn thành</div>
-      <div class="statvalue" id="progressDone">3</div>
-    </div>
-
-    <div class="card">
-      <div class="statlabel">Chuỗi ngày học liên tiếp</div>
-      <div class="statvalue">2 ngày</div>
-    </div>
-
-    <div class="card">
-      <div class="statlabel">Từ vựng đã ôn tập</div>
-      <div class="statvalue">28</div>
-    </div>
-
-    <div class="card">
-      <div class="statlabel">Trình độ luyện tập</div>
-      <div class="statvalue">B1</div>
-    </div>
-
-  </div>
-
-  <div class="card">
-    <h2 style="font-size:17px">Tổng quan các kỹ năng</h2>
-
-    <div class="task">
-      <div style="width:100%">
-        <strong>Luyện dịch</strong>
-        <div class="progress"><span style="width:72%"></span></div>
-      </div>
-      <b>72%</b>
-    </div>
-
-    <div class="task">
-      <div style="width:100%">
-        <strong>Từ vựng</strong>
-        <div class="progress"><span style="width:65%"></span></div>
-      </div>
-      <b>65%</b>
-    </div>
-
-    <div class="task">
-      <div style="width:100%">
-        <strong>Luyện nói</strong>
-        <div class="progress"><span style="width:48%"></span></div>
-      </div>
-      <b>48%</b>
-    </div>
-
-    <div class="task">
-      <div style="width:100%">
-        <strong>Luyện viết</strong>
-        <div class="progress"><span style="width:40%"></span></div>
-      </div>
-      <b>40%</b>
-    </div>
-  </div>
+ <div class="panelhead"><div class="eyebrow">THỐNG KÊ HỌC TẬP</div><h1>Tiến độ học tập</h1><p>Thống kê hoạt động đã được ghi nhận trên trình duyệt này.</p></div>
+ <div class="grid stats">
+  <div class="card"><div class="statlabel">Hoạt động hoàn thành</div><div class="statvalue" id="progressDone">0</div></div>
+  <div class="card"><div class="statlabel">Lần nhận phản hồi AI</div><div class="statvalue" id="progressAI">0</div></div>
+  <div class="card"><div class="statlabel">Từ vựng đã lưu</div><div class="statvalue" id="progressVocab">0</div></div>
+  <div class="card"><div class="statlabel">Bài tập tự tạo</div><div class="statvalue" id="progressTasks">0</div></div>
+ </div>
+ <div class="card"><h2 style="font-size:17px">Hoạt động gần đây</h2><div id="activityList" class="muted">Chưa có hoạt động được ghi nhận.</div><div class="actions"><button class="btn secondary" onclick="resetProgress()">Xóa thống kê hoạt động</button></div></div>
 </section>
 
-<div class="footer">
-  English Learning MN · Nền tảng luyện tập tiếng Anh · v0.3
-</div>
-
+<div class="footer">English Learning MN · Nền tảng luyện tập tiếng Anh · V1.1</div>
 </main>
 </div>
 </div>
 
 <script>
-const pages = [
-  'home',
-  'translation',
-  'speaking',
-  'vocabulary',
-  'writing',
-  'listening',
-  'reading',
-  'teacher',
-  'progress'
-];
+'use strict';
 
-function go(id){
-  document.querySelectorAll('.page').forEach(p => {
-    p.classList.toggle('active',p.id === id);
-  });
+const STORAGE = {
+  tasks:'ell_tasks',
+  vocab:'ell_saved_vocab',
+  progress:'ell_progress',
+  writing:'ell_writing_draft'
+};
+const pages=['home','translation','speaking','vocabulary','writing','listening','reading','teacher','progress'];
 
-  document.querySelectorAll('.nav').forEach(n => {
-    n.classList.toggle('active',n.dataset.page === id);
-  });
-
-  window.scrollTo({top:0,behavior:'smooth'});
+function safeRead(key,fallback){
+  try{const value=JSON.parse(localStorage.getItem(key));return value ?? fallback;}
+  catch(error){return fallback;}
 }
-
-document.querySelectorAll('.nav').forEach(n => {
-  n.addEventListener('click',() => go(n.dataset.page));
-});
-
-const roleSelect = document.getElementById('roleSelect');
-
-function setRole(){
-  const teacher = roleSelect.value === 'teacher';
-
-  document.querySelectorAll('.teacher-only').forEach(x => {
-    x.style.display = teacher ? 'flex' : 'none';
-  });
-
-  if(!teacher && document.getElementById('teacher').classList.contains('active')){
-    go('home');
-  }
+function safeWrite(key,value){
+  try{localStorage.setItem(key,JSON.stringify(value));return true;}
+  catch(error){alert('Không thể lưu dữ liệu trên trình duyệt.');return false;}
 }
-
-roleSelect.addEventListener('change',setRole);
-setRole();
-
-/* DỮ LIỆU BÀI TẬP DỊCH */
-
-const questions = [
-  {
-    vi:'Tôi thường dành thời gian rảnh để đọc sách vì nó giúp tôi giảm căng thẳng.',
-    hint:'usually spend my free time · reading books · reduce stress',
-    model:'I usually spend my free time reading books because it helps me reduce stress.'
-  },
-  {
-    vi:'Tham gia hoạt động tình nguyện giúp người trẻ phát triển các kỹ năng giao tiếp và làm việc nhóm.',
-    hint:'taking part in · volunteer activities · develop · communication and teamwork skills',
-    model:'Taking part in volunteer activities helps young people develop communication and teamwork skills.'
-  },
-  {
-    vi:'Tôi thích đi bộ ngoài trời vì điều đó giúp tôi thư giãn sau một ngày bận rộn.',
-    hint:'enjoy · go for a walk · outdoors · unwind · busy day',
-    model:'I enjoy going for a walk outdoors because it helps me unwind after a busy day.'
-  }
-];
-
-let qi = 0;
-
-function renderQ(){
-  document.getElementById('viPrompt').textContent = questions[qi].vi;
-
-  document.getElementById('qCount').textContent =
-    `Câu ${qi+1} / ${questions.length}`;
-
-  document.getElementById('translationAnswer').value = '';
-  document.getElementById('hintText').textContent = '';
-
-  const feedback = document.getElementById('translationFeedback');
-
-  feedback.className = 'feedback';
-  feedback.innerHTML = '';
-}
-
-function showHint(){
-  document.getElementById('hintText').textContent =
-    '💡 Gợi ý: ' + questions[qi].hint;
-}
-
-function showModel(){
-  const f = document.getElementById('translationFeedback');
-
-  f.innerHTML = `
-    <h3>Đáp án tham khảo</h3>
-    <p><strong>${escapeHTML(questions[qi].model)}</strong></p>
-    <small class="muted">
-      Có thể có nhiều cách diễn đạt đúng khác nhau.
-    </small>
-  `;
-
-  f.className = 'feedback show';
-}
-
-function nextQuestion(){
-  qi = (qi + 1) % questions.length;
-  renderQ();
-}
-
-/* BẢO VỆ NỘI DUNG HIỂN THỊ */
-
 function escapeHTML(value){
-  return String(value ?? '').replace(/[&<>"']/g,char => ({
-    '&':'&amp;',
-    '<':'&lt;',
-    '>':'&gt;',
-    '"':'&quot;',
-    "'":'&#39;'
+  return String(value ?? '').replace(/[&<>"']/g,char=>({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
   })[char]);
 }
+function go(id){
+  if(!pages.includes(id))return;
+  if(id==='teacher' && document.getElementById('roleSelect').value!=='teacher'){
+    alert('Hãy chuyển sang giao diện giáo viên để mở khu vực này.');return;
+  }
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));
+  document.querySelectorAll('.nav[data-page]').forEach(n=>n.classList.toggle('active',n.dataset.page===id));
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.querySelectorAll('.nav[data-page]').forEach(n=>n.addEventListener('click',()=>go(n.dataset.page)));
+const roleSelect=document.getElementById('roleSelect');
+function setRole(){
+  const teacher=roleSelect.value==='teacher';
+  document.querySelectorAll('.teacher-only').forEach(x=>x.style.display=teacher?'flex':'none');
+  if(!teacher && document.getElementById('teacher').classList.contains('active'))go('home');
+}
+roleSelect.addEventListener('change',setRole);setRole();
 
-/* KẾT NỐI TRANSLATION LAB VỚI GROQ AI */
+const questions=[
+ {vi:'Tôi thường dành thời gian rảnh để đọc sách vì nó giúp tôi giảm căng thẳng.',hint:'usually spend my free time · reading books · reduce stress',model:'I usually spend my free time reading books because it helps me reduce stress.'},
+ {vi:'Tham gia hoạt động tình nguyện giúp người trẻ phát triển các kỹ năng giao tiếp và làm việc nhóm.',hint:'taking part in · volunteer activities · develop · communication and teamwork skills',model:'Taking part in volunteer activities helps young people develop communication and teamwork skills.'},
+ {vi:'Tôi thích đi bộ ngoài trời vì điều đó giúp tôi thư giãn sau một ngày bận rộn.',hint:'enjoy · go for a walk · outdoors · unwind · busy day',model:'I enjoy going for a walk outdoors because it helps me unwind after a busy day.'}
+];
+let qi=0;
+function renderQ(){
+ const q=questions[qi];
+ document.getElementById('viPrompt').textContent=q.vi;
+ document.getElementById('qCount').textContent=`Câu ${qi+1} / ${questions.length}`;
+ document.getElementById('translationAnswer').value='';
+ document.getElementById('hintText').textContent='';
+ const f=document.getElementById('translationFeedback');f.className='feedback';f.innerHTML='';
+}
+function showHint(){document.getElementById('hintText').textContent='💡 Gợi ý: '+questions[qi].hint;}
+function showModel(){
+ const f=document.getElementById('translationFeedback');
+ f.innerHTML=`<h3>Đáp án tham khảo</h3><p><strong>${escapeHTML(questions[qi].model)}</strong></p><small class="muted">Có thể có nhiều cách diễn đạt đúng khác nhau.</small>`;
+ f.className='feedback show';
+}
+function nextQuestion(){qi=(qi+1)%questions.length;renderQ();}
+
+function getProgress(){return safeRead(STORAGE.progress,{completed:0,aiChecks:0,activities:[]});}
+function recordActivity(label,type='practice'){
+ const p=getProgress();p.completed=(p.completed||0)+1;
+ p.activities=Array.isArray(p.activities)?p.activities:[];
+ p.activities.unshift({label,type,date:new Date().toLocaleString('vi-VN')});
+ p.activities=p.activities.slice(0,20);safeWrite(STORAGE.progress,p);renderDashboard();
+}
+function recordAICheck(){
+ const p=getProgress();p.aiChecks=(p.aiChecks||0)+1;
+ p.activities=Array.isArray(p.activities)?p.activities:[];
+ p.activities.unshift({label:'Nhận phản hồi AI cho bài luyện dịch',type:'ai',date:new Date().toLocaleString('vi-VN')});
+ p.activities=p.activities.slice(0,20);safeWrite(STORAGE.progress,p);renderDashboard();
+}
 
 async function checkTranslation(){
-
-  const answerBox = document.getElementById('translationAnswer');
-  const feedback = document.getElementById('translationFeedback');
-  const checkButton = document.getElementById('checkTranslationButton');
-
-  const studentAnswer = answerBox.value.trim();
-
-  if(!studentAnswer){
-    alert('Bạn hãy nhập câu trả lời trước nhé!');
-    return;
+ const answerBox=document.getElementById('translationAnswer');
+ const feedback=document.getElementById('translationFeedback');
+ const button=document.getElementById('checkTranslationButton');
+ const studentAnswer=answerBox.value.trim();
+ if(!studentAnswer){alert('Bạn hãy nhập câu trả lời trước nhé!');answerBox.focus();return;}
+ const question=questions[qi];
+ button.disabled=true;button.textContent='AI đang kiểm tra...';
+ feedback.className='feedback show';
+ feedback.innerHTML='<p>🤖 AI đang phân tích câu trả lời của bạn. Vui lòng chờ...</p>';
+ try{
+  const response=await fetch('/.netlify/functions/ai-feedback',{
+   method:'POST',headers:{'Content-Type':'application/json'},
+   body:JSON.stringify({taskType:'translation',prompt:question.vi,studentAnswer,referenceAnswer:question.model,level:'B1'})
+  });
+  let data={};try{data=await response.json();}catch(e){throw new Error('Máy chủ trả về dữ liệu không hợp lệ.');}
+  if(!response.ok)throw new Error(data.detail||data.error||`Lỗi máy chủ (${response.status}).`);
+  const result=data.result;
+  if(!result)throw new Error('AI không trả về kết quả.');
+  let html=`<h3>🤖 Kết quả nhận xét từ AI</h3>
+   <div class="result-highlight"><strong>Nhận xét chung</strong><p>${escapeHTML(result.overall||'Chưa có nhận xét.')}</p></div>
+   <h4>1. Đánh giá các tiêu chí</h4>`;
+  const dimensions=[
+   {key:'meaning',title:'Ý nghĩa'},{key:'grammar',title:'Ngữ pháp'},
+   {key:'vocabulary',title:'Từ vựng'},{key:'naturalness',title:'Độ tự nhiên'}
+  ];
+  let dimensionCount=0;
+  dimensions.forEach(item=>{
+   const dimension=result.dimensions?.[item.key];if(!dimension)return;
+   dimensionCount++;
+   const status=dimension.status||'Chưa đủ dữ liệu';
+   const isGood=status==='Tốt'||status==='Khá tốt';
+   html+=`<div class="dimension"><div class="dimension-head">
+    <strong>${escapeHTML(item.title)}</strong>
+    <span class="${isGood?'good':'bad'}">${escapeHTML(status)}</span>
+   </div><p>${escapeHTML(dimension.feedback||'Chưa có giải thích.')}</p></div>`;
+  });
+  if(!dimensionCount)html+='<p class="muted">AI chưa cung cấp đánh giá chi tiết theo từng tiêu chí.</p>';
+  if(result.meaning_summary)html+='<h4>2. Nhận xét về ý nghĩa</h4><p>'+escapeHTML(result.meaning_summary)+'</p>';
+  html+='<h4>3. Những lỗi cần sửa</h4>';
+  if(Array.isArray(result.corrections)&&result.corrections.length){
+   result.corrections.forEach(item=>{
+    html+=`<div class="correction">
+     <p><strong>Cách viết ban đầu:</strong> ${escapeHTML(item.original)}</p>
+     <p><strong>Cách viết đúng:</strong> <span class="good">${escapeHTML(item.corrected)}</span></p>
+     <p><strong>Giải thích:</strong> ${escapeHTML(item.reason)}</p>
+     ${item.category?`<small class="muted">${escapeHTML(item.category)}</small>`:''}
+    </div>`;
+   });
+  }else html+='<p class="good">AI không phát hiện lỗi đáng kể trong câu trả lời.</p>';
+  if(Array.isArray(result.strengths)&&result.strengths.length){
+   html+='<h4>4. Những điểm bạn đã làm tốt</h4><ul>'+result.strengths.map(x=>`<li>${escapeHTML(x)}</li>`).join('')+'</ul>';
   }
-
-  const question = questions[qi];
-
-  checkButton.disabled = true;
-  checkButton.textContent = 'AI đang kiểm tra...';
-
-  feedback.className = 'feedback show';
-
-  feedback.innerHTML = `
-    <p>🤖 AI đang phân tích câu trả lời của bạn. Vui lòng chờ...</p>
-  `;
-
-  try{
-
-    const response = await fetch('/.netlify/functions/ai-feedback',{
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json'
-      },
-      body:JSON.stringify({
-        taskType:'translation',
-        prompt:question.vi,
-        studentAnswer:studentAnswer,
-        referenceAnswer:question.model,
-        level:'B1'
-      })
-    });
-
-    const data = await response.json();
-
-    if(!response.ok){
-      throw new Error(
-        data.detail || data.error || 'Không thể kết nối AI.'
-      );
-    }
-
-    const result = data.result;
-
-    if(!result){
-      throw new Error('AI không trả về kết quả.');
-    }
-
-    let html = `
-      <h3>🤖 Kết quả nhận xét từ AI</h3>
-
-      <div class="result-highlight">
-        <strong>Nhận xét chung</strong>
-        <p>${escapeHTML(result.overall || 'Chưa có nhận xét.')}</p>
-      </div>
-
-      <h4>1. Đánh giá các tiêu chí</h4>
-    `;
-
-    const dimensions = [
-      {key:'meaning',title:'Ý nghĩa'},
-      {key:'grammar',title:'Ngữ pháp'},
-      {key:'vocabulary',title:'Từ vựng'},
-      {key:'naturalness',title:'Độ tự nhiên'}
-    ];
-
-    dimensions.forEach(item => {
-
-      const dimension = result.dimensions?.[item.key];
-
-      if(!dimension) return;
-
-      const status = dimension.status || 'Chưa đủ dữ liệu';
-
-      const isGood =
-        status === 'Tốt' || status === 'Khá tốt';
-
-      html += `
-        <div class="dimension">
-          <div class="dimension-head">
-            <strong>${item.title}</strong>
-            <span class="${isGood ? 'good' : 'bad'}">
-              ${escapeHTML(status)}
-            </span>
-          </div>
-
-          <p>${escapeHTML(dimension.feedback || '')}</p>
-        </div>
-      `;
-    });
-
-    if(result.meaning_summary){
-
-      html += `
-        <h4>2. Nhận xét về ý nghĩa</h4>
-        <p>${escapeHTML(result.meaning_summary)}</p>
-      `;
-    }
-
-    html += '<h4>3. Những lỗi cần sửa</h4>';
-
-    if(Array.isArray(result.corrections) && result.corrections.length){
-
-      result.corrections.forEach(item => {
-
-        html += `
-          <div class="correction">
-
-            <p>
-              <strong>Cách viết ban đầu:</strong>
-              ${escapeHTML(item.original)}
-            </p>
-
-            <p>
-              <strong>Cách viết đúng:</strong>
-              <span class="good">
-                ${escapeHTML(item.corrected)}
-              </span>
-            </p>
-
-            <p>
-              <strong>Giải thích:</strong>
-              ${escapeHTML(item.reason)}
-            </p>
-
-            <small class="muted">
-              ${escapeHTML(item.category || '')}
-            </small>
-
-          </div>
-        `;
-      });
-
-    }else{
-
-      html += `
-        <p class="good">
-          Rất tốt! AI không phát hiện lỗi đáng kể trong câu trả lời.
-        </p>
-      `;
-    }
-
-    if(Array.isArray(result.strengths) && result.strengths.length){
-
-      html += '<h4>4. Những điểm bạn đã làm tốt</h4><ul>';
-
-      result.strengths.forEach(item => {
-        html += `<li>${escapeHTML(item)}</li>`;
-      });
-
-      html += '</ul>';
-    }
-
-    if(result.improved_version){
-
-      html += `
-        <h4>5. Phiên bản hoàn thiện</h4>
-
-        <div class="improved-box">
-          <strong>
-            ${escapeHTML(result.improved_version)}
-          </strong>
-        </div>
-      `;
-    }
-
-    if(Array.isArray(result.alternative_answers) && result.alternative_answers.length){
-
-      html += '<h4>6. Những cách diễn đạt khác</h4><ul>';
-
-      result.alternative_answers.forEach(item => {
-        html += `<li>${escapeHTML(item)}</li>`;
-      });
-
-      html += '</ul>';
-    }
-
-    if(result.next_step){
-
-      html += `
-        <h4>7. Gợi ý luyện tập tiếp theo</h4>
-        <p>${escapeHTML(result.next_step)}</p>
-      `;
-    }
-
-    feedback.innerHTML = html;
-    feedback.className = 'feedback show';
-
-  }catch(error){
-
-    feedback.innerHTML = `
-      <p class="bad">Không thể nhận phản hồi từ AI.</p>
-      <p>${escapeHTML(error.message)}</p>
-      <p class="muted">
-        Bạn hãy thử lại. Nếu lỗi tiếp tục xảy ra,
-        hãy gửi thông báo lỗi để kiểm tra.
-      </p>
-    `;
-
-    feedback.className = 'feedback show';
-
-  }finally{
-
-    checkButton.disabled = false;
-    checkButton.textContent = 'Kiểm tra bằng AI';
-
+  if(result.improved_version)html+=`<h4>5. Phiên bản hoàn thiện</h4><div class="improved-box"><strong>${escapeHTML(result.improved_version)}</strong></div>`;
+  if(Array.isArray(result.alternative_answers)&&result.alternative_answers.length){
+   html+='<h4>6. Những cách diễn đạt khác</h4><ul>'+result.alternative_answers.map(x=>`<li>${escapeHTML(x)}</li>`).join('')+'</ul>';
   }
+  if(result.next_step)html+='<h4>7. Gợi ý luyện tập tiếp theo</h4><p>'+escapeHTML(result.next_step)+'</p>';
+  feedback.innerHTML=html;feedback.className='feedback show';recordAICheck();
+ }catch(error){
+  feedback.innerHTML=`<p class="bad">Không thể nhận phản hồi từ AI.</p><p>${escapeHTML(error.message)}</p><p class="muted">Hãy kiểm tra kết nối mạng hoặc thử lại sau.</p>`;
+  feedback.className='feedback show';
+ }finally{button.disabled=false;button.textContent='Kiểm tra bằng AI';}
 }
 
-/* SPEAKING LAB */
-
-const sQuestions = [
-  'What do you usually do in your free time?',
-  'Do you prefer spending your free time alone or with other people?',
-  'Has the way you spend your free time changed over the years?'
+/* SPEAKING: ghi âm cục bộ, phát lại và tải xuống */
+const sQuestions=[
+ 'What do you usually do in your free time?',
+ 'Do you prefer spending your free time alone or with other people?',
+ 'Has the way you spend your free time changed over the years?'
 ];
-
-let si = 0;
-
-function nextSpeaking(){
-  si = (si + 1) % sQuestions.length;
-
-  document.getElementById('sQuestion').textContent =
-    sQuestions[si];
+let si=0,recorder=null,recordStream=null,recordChunks=[],recordUrl=null;
+function renderSpeakingQuestion(){
+ document.getElementById('sQuestion').textContent=sQuestions[si];
+ document.getElementById('sQuestionCount').textContent=`Câu hỏi ${si+1} / ${sQuestions.length}`;
 }
-
-function say(t){
-
-  if('speechSynthesis' in window){
-
-    speechSynthesis.cancel();
-
-    speechSynthesis.speak(
-      new SpeechSynthesisUtterance(t)
-    );
-
-  }else{
-
-    alert('Trình duyệt không hỗ trợ chức năng đọc văn bản.');
-
-  }
+function nextSpeaking(){si=(si+1)%sQuestions.length;renderSpeakingQuestion();}
+function say(text){
+ if(!('speechSynthesis'in window)){alert('Trình duyệt không hỗ trợ đọc văn bản.');return;}
+ speechSynthesis.cancel();const utterance=new SpeechSynthesisUtterance(text);utterance.lang='en-US';speechSynthesis.speak(utterance);
 }
-
-function speakQuestion(){
-  say(document.getElementById('sQuestion').textContent);
-}
-
-let recorder;
-let stream;
-let chunks = [];
-
+function speakQuestion(){say(document.getElementById('sQuestion').textContent);}
 async function startRecording(){
+ if(!navigator.mediaDevices?.getUserMedia||!window.MediaRecorder){
+  document.getElementById('recordStatus').textContent='Trình duyệt hoặc kết nối hiện tại không hỗ trợ ghi âm. Hãy mở website bằng HTTPS và thử lại.';return;
+ }
+ try{
+  recordStream=await navigator.mediaDevices.getUserMedia({audio:true});
+  const options=MediaRecorder.isTypeSupported('audio/webm;codecs=opus')?{mimeType:'audio/webm;codecs=opus'}:{};
+  recorder=new MediaRecorder(recordStream,options);recordChunks=[];
+  recorder.ondataavailable=e=>{if(e.data.size)recordChunks.push(e.data);};
+  recorder.onstop=()=>{
+   const blob=new Blob(recordChunks,{type:recorder.mimeType||'audio/webm'});
+   if(recordUrl)URL.revokeObjectURL(recordUrl);
+   recordUrl=URL.createObjectURL(blob);
+   const audio=document.getElementById('recordPlayback');audio.src=recordUrl;audio.style.display='block';
+   const link=document.getElementById('downloadRecording');link.href=recordUrl;link.style.display='inline-block';link.textContent='Tải bản ghi âm';
+   document.getElementById('recordStatus').textContent='Đã ghi âm xong. Bạn có thể nghe lại hoặc tải tệp về.';
+   recordStream?.getTracks().forEach(track=>track.stop());recordStream=null;
+   document.getElementById('recordButton').disabled=false;document.getElementById('recordButton').textContent='● Bắt đầu ghi âm';
+   recordActivity('Hoàn thành một lượt ghi âm Speaking');
+  };
+  recorder.start();document.getElementById('recordStatus').textContent='Đang ghi âm... Hãy nhấn Dừng ghi âm khi hoàn thành.';
+  document.getElementById('recordButton').disabled=true;document.getElementById('recordButton').textContent='Đang ghi âm...';
+ }catch(error){
+  document.getElementById('recordStatus').textContent='Không thể truy cập micro. Hãy kiểm tra quyền micro của trình duyệt.';
+  recordStream?.getTracks().forEach(track=>track.stop());recordStream=null;
+ }
+}
+function stopRecording(){if(recorder&&recorder.state==='recording')recorder.stop();}
 
-  try{
-
-    stream = await navigator.mediaDevices.getUserMedia({
-      audio:true
-    });
-
-    recorder = new MediaRecorder(stream);
-    chunks = [];
-
-    recorder.ondataavailable = e => chunks.push(e.data);
-
-    recorder.onstop = () => {
-
-      const blob = new Blob(chunks,{
-        type:'audio/webm'
-      });
-
-      const url = URL.createObjectURL(blob);
-
-      const a = document.createElement('a');
-
-      a.href = url;
-      a.download = 'speaking-practice.webm';
-      a.textContent = 'Tải bản ghi âm';
-
-      document.getElementById('recordStatus').innerHTML =
-        'Đã ghi âm xong: ';
-
-      document.getElementById('recordStatus').appendChild(a);
-
-      stream.getTracks().forEach(t => t.stop());
-
-    };
-
-    recorder.start();
-
-    document.getElementById('recordStatus').textContent =
-      'Đang ghi âm... Nhấn Dừng ghi âm khi hoàn thành.';
-
-  }catch(e){
-
-    document.getElementById('recordStatus').textContent =
-      'Không thể sử dụng micro. Bạn vẫn có thể nhập câu trả lời bằng văn bản.';
-
-  }
+/* VOCABULARY */
+const vocabulary=[
+ {word:'unwind',ipa:'/ˌʌnˈwaɪnd/',type:'Động từ · B1',meaning:'thư giãn, nghỉ ngơi sau khi căng thẳng',collocations:'unwind after work · unwind by reading',example:'I listen to music to unwind after a busy day.'},
+ {word:'broaden',ipa:'/ˈbrɔːdn/',type:'Động từ · B1',meaning:'mở rộng',collocations:'broaden your knowledge · broaden your horizons',example:'Travelling can broaden our horizons.'},
+ {word:'benefit',ipa:'/ˈbenɪfɪt/',type:'Danh từ / Động từ · B1',meaning:'lợi ích; đem lại lợi ích',collocations:'bring benefits · health benefits · benefit from',example:'Volunteering brings benefits to local communities.'},
+ {word:'contribute',ipa:'/kənˈtrɪbjuːt/',type:'Động từ · B1',meaning:'đóng góp',collocations:'contribute to society · contribute time and effort',example:'Students can contribute to their communities.'},
+ {word:'practical',ipa:'/ˈpræktɪkl/',type:'Tính từ · B1',meaning:'thiết thực, thực tế',collocations:'practical skills · practical experience',example:'Part-time jobs help students gain practical experience.'},
+ {word:'confidence',ipa:'/ˈkɒnfɪdəns/',type:'Danh từ · B1',meaning:'sự tự tin',collocations:'build confidence · gain confidence',example:'Speaking in public can help learners build confidence.'}
+];
+function getSavedVocab(){return safeRead(STORAGE.vocab,[]);}
+function renderVocabulary(){
+ const saved=getSavedVocab(),grid=document.getElementById('vocabGrid');
+ grid.innerHTML='';
+ vocabulary.forEach((v,index)=>{
+  const card=document.createElement('div');card.className='card vocab-card';card.innerHTML=
+   `<span class="tag">${escapeHTML(v.type)}</span><div class="word">${escapeHTML(v.word)}</div><div class="muted">${escapeHTML(v.ipa)}</div><div class="hint">Nhấn để xem nghĩa và ví dụ</div>
+    <div class="reveal"><p>${escapeHTML(v.meaning)}</p><strong>Cụm từ thường dùng</strong><p>${escapeHTML(v.collocations)}</p><strong>Ví dụ</strong><p>${escapeHTML(v.example)}</p>
+    <button class="btn ${saved.includes(v.word)?'secondary':''}" type="button">${saved.includes(v.word)?'Đã lưu ✓':'Đánh dấu ôn tập'}</button></div>`;
+  card.addEventListener('click',e=>{
+   if(e.target.tagName==='BUTTON'){
+    e.stopPropagation();let list=getSavedVocab();
+    if(list.includes(v.word))list=list.filter(x=>x!==v.word);else list.push(v.word);
+    safeWrite(STORAGE.vocab,list);renderVocabulary();renderDashboard();return;
+   }
+   card.classList.toggle('open');
+  });
+  grid.appendChild(card);
+ });
+ const list=document.getElementById('savedVocabList');
+ document.getElementById('savedVocabCount').textContent=saved.length+' từ';
+ if(!saved.length){list.textContent='Bạn chưa đánh dấu từ nào.';}
+ else{list.textContent=saved.map(word=>vocabulary.find(v=>v.word===word)?.word||word).join(' · ');}
 }
 
-function stopRecording(){
+/* WRITING: lưu bản nháp */
+function loadWriting(){
+ const draft=safeRead(STORAGE.writing,{});
+ ['writingIdea','writingSupport','writingDraft'].forEach(id=>document.getElementById(id).value=draft[id]||'');
+}
+function saveWriting(){
+ const draft={};['writingIdea','writingSupport','writingDraft'].forEach(id=>draft[id]=document.getElementById(id).value);
+ if(safeWrite(STORAGE.writing,draft)){document.getElementById('writingStatus').textContent='Đã lưu bản nháp trên trình duyệt này.';recordActivity('Lưu bản nháp Writing');}
+}
+function clearWriting(){
+ if(!confirm('Bạn có chắc muốn xóa toàn bộ bản nháp?'))return;
+ ['writingIdea','writingSupport','writingDraft'].forEach(id=>document.getElementById(id).value='');
+ localStorage.removeItem(STORAGE.writing);document.getElementById('writingStatus').textContent='Đã xóa bản nháp.';
+}
 
-  if(recorder && recorder.state === 'recording'){
-    recorder.stop();
-  }
+/* LISTENING */
+const listeningText='The school library opens at eight thirty and closes at five thirty every weekday.';
+function playListening(){say(listeningText);}
+function stopListening(){if('speechSynthesis'in window)speechSynthesis.cancel();}
+function checkListening(){
+ const answer=document.getElementById('listenAnswer').value.trim().toLowerCase().replace(/\s/g,'');
+ const result=document.getElementById('listeningResult');result.style.display='block';
+ if(['eightthirty','8:30','8.30','0830'].includes(answer)){
+  result.innerHTML='<strong class="good">Chính xác!</strong><p>Đáp án: eight thirty / 8:30.</p>';recordActivity('Hoàn thành bài Listening');
+ }else result.innerHTML='<strong class="bad">Chưa chính xác.</strong><p>Hãy nghe lại phần mở đầu. Đáp án là eight thirty / 8:30.</p>';
+}
+
+/* READING */
+function checkReading(){
+ const value=document.getElementById('readingChoice').value,result=document.getElementById('readingResult');
+ result.style.display='block';
+ if(value==='b'){
+  result.innerHTML='<strong class="good">Chính xác!</strong><p>Bằng chứng: “improve their communication and teamwork skills”.</p>';recordActivity('Hoàn thành bài Reading');
+ }else result.innerHTML='<strong class="bad">Chưa chính xác.</strong><p>Hãy tìm câu có nhắc đến những kỹ năng mà người trẻ phát triển khi làm việc với người khác.</p>';
 }
 
 /* TEACHER STUDIO */
-
-const createForm = document.getElementById('createForm');
-
-function getItems(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem('ell_tasks') || '[]'
-    );
-
-  }catch(e){
-
-    return [];
-
-  }
-}
-
-function saveItems(items){
-
-  localStorage.setItem(
-    'ell_tasks',
-    JSON.stringify(items)
-  );
-
-  renderItems();
-}
-
+function getItems(){return safeRead(STORAGE.tasks,[]);}
+function saveItems(items){safeWrite(STORAGE.tasks,items);renderItems();renderDashboard();}
 function renderItems(){
-
-  const items = getItems();
-
-  document.getElementById('contentCount').textContent =
-    items.length + ' bài';
-
-  const list = document.getElementById('contentList');
-
-  if(!items.length){
-
-    list.textContent = 'Các bài tập đã tạo sẽ xuất hiện ở đây.';
-    return;
-
-  }
-
-  list.innerHTML = '';
-
-  items.forEach((it,i) => {
-
-    const d = document.createElement('div');
-    d.className = 'listitem';
-
-    const left = document.createElement('div');
-
-    const strong = document.createElement('strong');
-    strong.textContent = it.title;
-
-    const small = document.createElement('small');
-    small.textContent = it.module + ' · ' + it.level;
-    small.style.display = 'block';
-    small.style.color = '#667085';
-
-    left.append(strong,small);
-
-    const del = document.createElement('button');
-    del.className = 'btn secondary';
-    del.textContent = 'Xóa';
-
-    del.onclick = () => {
-
-      const a = getItems();
-
-      a.splice(i,1);
-
-      saveItems(a);
-
-    };
-
-    d.append(left,del);
-
-    list.appendChild(d);
-
-  });
+ const items=getItems(),list=document.getElementById('contentList');
+ document.getElementById('contentCount').textContent=items.length+' bài';
+ list.innerHTML='';
+ if(!items.length){list.textContent='Các bài tập đã tạo sẽ xuất hiện ở đây.';return;}
+ items.forEach((item,index)=>{
+  const row=document.createElement('div');row.className='listitem';
+  const left=document.createElement('div'),title=document.createElement('strong'),meta=document.createElement('small');
+  title.textContent=item.title;meta.textContent=item.module+' · '+item.level;meta.style.display='block';meta.style.color='#667085';
+  const details=document.createElement('p');details.textContent=item.prompt;details.style.margin='6px 0 0';details.style.fontSize='13px';details.style.color='#667085';
+  left.append(title,meta,details);
+  const del=document.createElement('button');del.className='btn danger';del.textContent='Xóa';
+  del.addEventListener('click',()=>{if(!confirm('Xóa bài tập này?'))return;const updated=getItems();updated.splice(index,1);saveItems(updated);});
+  row.append(left,del);list.appendChild(row);
+ });
 }
-
-createForm.addEventListener('submit',e => {
-
-  e.preventDefault();
-
-  const items = getItems();
-
-  items.push({
-
-    title:document.getElementById('newTitle').value,
-    module:document.getElementById('newModule').value,
-    level:document.getElementById('newLevel').value,
-    prompt:document.getElementById('newPrompt').value,
-    model:document.getElementById('newModel').value
-
-  });
-
-  saveItems(items);
-
-  createForm.reset();
-
+document.getElementById('createForm').addEventListener('submit',event=>{
+ event.preventDefault();
+ const items=getItems();
+ items.unshift({
+  title:document.getElementById('newTitle').value.trim(),
+  module:document.getElementById('newModule').value,
+  level:document.getElementById('newLevel').value,
+  prompt:document.getElementById('newPrompt').value.trim(),
+  model:document.getElementById('newModel').value.trim(),
+  createdAt:new Date().toISOString()
+ });
+ saveItems(items);event.target.reset();recordActivity('Tạo bài tập trong Teacher Studio');
 });
 
-renderItems();
-renderQ();
+/* DASHBOARD / PROGRESS */
+function renderDashboard(){
+ const progress=getProgress(),saved=getSavedVocab(),tasks=getItems();
+ const completed=progress.completed||0,ai=progress.aiChecks||0;
+ const set=(id,value)=>{const el=document.getElementById(id);if(el)el.textContent=value;};
+ set('statDone',completed);set('progressDone',completed);
+ set('statAI',ai);set('progressAI',ai);
+ set('statVocab',saved.length);set('progressVocab',saved.length);
+ set('statTasks',tasks.length);set('progressTasks',tasks.length);
+ const list=document.getElementById('activityList');
+ if(list){
+  list.innerHTML='';
+  const activities=progress.activities||[];
+  if(!activities.length)list.textContent='Chưa có hoạt động được ghi nhận.';
+  else activities.slice(0,10).forEach(a=>{
+   const row=document.createElement('div');row.className='listitem';
+   const left=document.createElement('div'),strong=document.createElement('strong'),small=document.createElement('small');
+   strong.textContent=a.label;small.textContent=a.date;small.style.display='block';small.style.color='#667085';
+   left.append(strong,small);row.appendChild(left);list.appendChild(row);
+  });
+ }
+}
+function resetProgress(){
+ if(!confirm('Xóa thống kê hoạt động trên trình duyệt này?'))return;
+ safeWrite(STORAGE.progress,{completed:0,aiChecks:0,activities:[]});renderDashboard();
+}
 
+renderQ();renderSpeakingQuestion();renderVocabulary();renderItems();loadWriting();renderDashboard();
 </script>
 </body>
 </html>
