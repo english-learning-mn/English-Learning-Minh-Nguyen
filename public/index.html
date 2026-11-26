@@ -680,10 +680,7 @@ speechRecognition.onerror=event=>{
  status.textContent=messages[event.error]||
   'Có lỗi khi nhận diện giọng nói: '+event.error;
 };
-   status.textContent=messages[event.error]||'Có lỗi khi nhận diện giọng nói: '+event.error;
-  };
-
-  speechRecognition.onend=()=>{
+   speechRecognition.onend=()=>{
    recognitionActive=false;
    button.textContent='🎙 Nhận diện giọng nói';
    if(document.getElementById('speechTranscript').value.trim()){
