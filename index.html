@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Learning MN — Prototype</title>
+<style>
+:root{--ink:#172033;--muted:#667085;--line:#e7eaf0;--bg:#f5f7fb;--card:#fff;--blue:#315efb;--blue2:#edf2ff;--green:#16845b;--amber:#a15c07;--shadow:0 8px 28px rgba(24,39,75,.07)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.app{min-height:100vh}.top{height:68px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 26px;position:sticky;top:0;z-index:5}.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.3px}.logo{width:36px;height:36px;border-radius:11px;background:linear-gradient(135deg,#315efb,#7b61ff);color:#fff;display:grid;place-items:center;font-weight:900}.brand small{display:block;font-size:11px;color:var(--muted);font-weight:600;letter-spacing:1px}.topright{display:flex;align-items:center;gap:12px}.pill{border:1px solid var(--line);background:#fff;padding:8px 12px;border-radius:999px;color:#475467;font-size:13px}.avatar{width:34px;height:34px;border-radius:50%;background:#e9edff;color:#315efb;display:grid;place-items:center;font-weight:800}
+.layout{display:grid;grid-template-columns:245px 1fr;max-width:1440px;margin:auto;min-height:calc(100vh - 68px)}aside{padding:24px 16px;border-right:1px solid var(--line);background:#fbfcfe}.navlabel{font-size:11px;font-weight:800;color:#98a2b3;letter-spacing:1.2px;padding:12px 12px 7px}.nav{display:flex;align-items:center;gap:11px;width:100%;border:0;background:transparent;padding:11px 12px;border-radius:10px;text-align:left;color:#475467;margin:2px 0}.nav:hover,.nav.active{background:var(--blue2);color:var(--blue);font-weight:700}.nav .ico{width:21px;text-align:center;font-size:17px}.asidebox{margin:24px 5px 0;padding:14px;background:#fff;border:1px solid var(--line);border-radius:13px;font-size:12px;color:var(--muted)}main{padding:30px;max-width:1195px;width:100%;margin:auto}.welcome{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:24px}.eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase}.welcome h1{font-size:29px;line-height:1.2;margin:7px 0}.welcome p{color:var(--muted);margin:0}.btn{border:0;background:var(--blue);color:white;padding:10px 16px;border-radius:10px;font-weight:700}.btn:hover{filter:brightness(.96)}.btn.secondary{background:#fff;color:#344054;border:1px solid var(--line)}.btn.light{background:var(--blue2);color:var(--blue)}.grid{display:grid;gap:16px}.stats{grid-template-columns:repeat(4,1fr);margin-bottom:20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:19px;box-shadow:var(--shadow)}.statlabel{font-size:12px;color:var(--muted)}.statvalue{font-size:26px;font-weight:800;margin:5px 0}.statnote{font-size:12px;color:var(--green)}.cols{grid-template-columns:1.35fr 1fr}.sectionhead{display:flex;align-items:center;justify-content:space-between;margin:0 0 13px}.sectionhead h2{font-size:17px;margin:0}.muted{color:var(--muted)}.modulegrid{grid-template-columns:repeat(3,1fr)}.module{padding:18px;min-height:145px;cursor:pointer;transition:.15s}.module:hover{transform:translateY(-2px);border-color:#c6d2ff}.moduleicon{width:40px;height:40px;border-radius:12px;background:var(--blue2);display:grid;place-items:center;font-size:20px;margin-bottom:13px}.module h3{font-size:15px;margin:0 0 5px}.module p{font-size:12px;color:var(--muted);margin:0}.tag{font-size:11px;border-radius:999px;padding:4px 8px;background:#f2f4f7;color:#475467}.task{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)}.task:last-child{border:0}.task strong{display:block;font-size:14px}.task small{color:var(--muted)}.progress{height:7px;background:#eef1f6;border-radius:20px;overflow:hidden;margin-top:9px}.progress span{display:block;height:100%;background:var(--blue);border-radius:20px}.page{display:none}.page.active{display:block}.panelhead{margin-bottom:20px}.panelhead h1{font-size:27px;margin:5px 0}.panelhead p{margin:0;color:var(--muted)}.exercise{max-width:900px}.label{font-size:12px;font-weight:800;color:#667085;letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px}.prompt{font-size:20px;font-weight:650;line-height:1.45;background:#f8f9fc;padding:18px;border-radius:12px;border:1px solid var(--line)}textarea,input,select{width:100%;border:1px solid #d8deea;border-radius:10px;padding:12px;background:#fff;color:var(--ink);outline:none}textarea:focus,input:focus,select:focus{border-color:#8ba2ff;box-shadow:0 0 0 3px #315efb18}textarea{min-height:105px;resize:vertical}.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}.feedback{margin-top:17px;padding:16px;border-radius:12px;background:#f7f9fc;border:1px solid var(--line);display:none}.feedback.show{display:block}.good{color:var(--green);font-weight:750}.bad{color:#b54708;font-weight:750}.hint{font-size:13px;color:var(--muted);margin-top:9px}.two{display:grid;grid-template-columns:1fr 1fr;gap:15px}.listitem{padding:13px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}.listitem:last-child{border:0}.teacherform{display:grid;gap:13px}.teacherform label{font-size:13px;font-weight:700;color:#475467;display:grid;gap:6px}.notice{padding:13px 15px;background:#fff8eb;border:1px solid #f5dfb6;border-radius:11px;color:#81520b;font-size:13px}.empty{padding:28px;text-align:center;color:var(--muted)}.footer{font-size:12px;color:#98a2b3;text-align:center;padding:28px 0 10px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding:9px 12px;display:flex;overflow:auto;gap:5px}.navlabel,.asidebox{display:none}.nav{white-space:nowrap;width:auto;padding:9px 11px}.nav .ico{display:none}main{padding:22px 16px}.stats{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.modulegrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.top{padding:0 14px}.topright .pill{display:none}.welcome{display:block}.welcome .btn{margin-top:15px}.stats{gap:9px}.card{padding:15px}.modulegrid{grid-template-columns:1fr 1fr}.module{padding:13px;min-height:135px}.two{grid-template-columns:1fr}.welcome h1{font-size:25px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="top">
+  <div class="brand"><div class="logo">MN</div><div>English Learning MN<small>TEACHER & STUDENT PLATFORM</small></div></div>
+  <div class="topright"><span class="pill">● Prototype mode</span><select id="roleSelect" class="pill" style="width:auto" aria-label="Chọn vai trò"><option value="student">Student view</option><option value="teacher">Teacher view</option></select><div class="avatar">EL</div></div>
+</header>
+<div class="layout">
+<aside>
+  <div class="navlabel">WORKSPACE</div>
+  <button class="nav active" data-page="home"><span class="ico">⌂</span>Overview</button>
+  <div class="navlabel">LEARNING LABS</div>
+  <button class="nav" data-page="translation"><span class="ico">⇄</span>Translation</button>
+  <button class="nav" data-page="speaking"><span class="ico">🎙</span>Speaking</button>
+  <button class="nav" data-page="vocabulary"><span class="ico">▤</span>Vocabulary</button>
+  <button class="nav" data-page="writing"><span class="ico">✎</span>Writing</button>
+  <button class="nav" data-page="listening"><span class="ico">♫</span>Listening</button>
+  <button class="nav" data-page="reading"><span class="ico">▣</span>Reading</button>
+  <div class="navlabel">MANAGEMENT</div>
+  <button class="nav teacher-only" data-page="teacher"><span class="ico">▥</span>Teacher Studio</button>
+  <button class="nav" data-page="progress"><span class="ico">↗</span>My Progress</button>
+  <div class="asidebox"><strong>Prototype notice</strong><br>Đây là bản mô phỏng tương tác chạy trên trình duyệt. Dữ liệu hiện được lưu cục bộ trên thiết bị.</div>
+</aside>
+<main>
+<section class="page active" id="home">
+  <div class="welcome"><div><div class="eyebrow">LEARNING OVERVIEW</div><h1>Good afternoon! 👋</h1><p>Chào mừng bạn đến với không gian luyện tập tiếng Anh.</p></div><button class="btn" onclick="go('translation')">Bắt đầu luyện tập →</button></div>
+  <div class="grid stats">
+    <div class="card"><div class="statlabel">Bài đã hoàn thành</div><div class="statvalue" id="statDone">3</div><div class="statnote">Tiếp tục duy trì nhé</div></div>
+    <div class="card"><div class="statlabel">Thời gian học</div><div class="statvalue">45 <small style="font-size:13px">phút</small></div><div class="statnote">Trong tuần này</div></div>
+    <div class="card"><div class="statlabel">Từ vựng đã học</div><div class="statvalue">28</div><div class="statnote">Theo dõi và ôn tập</div></div>
+    <div class="card"><div class="statlabel">Tiến độ mục tiêu</div><div class="statvalue">35%</div><div class="progress"><span style="width:35%"></span></div></div>
+  </div>
+  <div class="grid cols">
+    <div class="card"><div class="sectionhead"><h2>Learning modules</h2><span class="tag">7 modules</span></div><div class="grid modulegrid">
+      <div class="card module" onclick="go('translation')"><div class="moduleicon">⇄</div><h3>Translation Lab</h3><p>Luyện dịch và xây dựng câu.</p></div>
+      <div class="card module" onclick="go('speaking')"><div class="moduleicon">🎙</div><h3>Speaking Lab</h3><p>Luyện nói và ghi âm.</p></div>
+      <div class="card module" onclick="go('vocabulary')"><div class="moduleicon">▤</div><h3>Vocabulary Lab</h3><p>Từ vựng và collocations.</p></div>
+      <div class="card module" onclick="go('writing')"><div class="moduleicon">✎</div><h3>Writing Lab</h3><p>Viết câu, đoạn và essay.</p></div>
+      <div class="card module" onclick="go('listening')"><div class="moduleicon">♫</div><h3>Listening Lab</h3><p>Luyện nghe theo dạng bài.</p></div>
+      <div class="card module" onclick="go('reading')"><div class="moduleicon">▣</div><h3>Reading Lab</h3><p>Đọc hiểu và tìm bằng chứng.</p></div>
+    </div></div>
+    <div class="card"><div class="sectionhead"><h2>Continue learning</h2><span class="tag">Suggested</span></div>
+      <div class="task"><div><strong>Translation: Free-time activities</strong><small>3 câu · A2–B1</small></div><button class="btn light" onclick="go('translation')">Open</button></div>
+      <div class="task"><div><strong>Speaking Part 1: Hobbies</strong><small>5 câu hỏi · B1</small></div><button class="btn light" onclick="go('speaking')">Open</button></div>
+      <div class="task"><div><strong>Vocabulary: Education</strong><small>12 từ · B1–B2</small></div><button class="btn light" onclick="go('vocabulary')">Open</button></div>
+      <div class="notice" style="margin-top:15px">AI feedback sẽ được bật khi kết nối API ở phía máy chủ. Prototype hiện minh họa phản hồi mẫu, không gửi dữ liệu ra ngoài.</div>
+    </div>
+  </div>
+</section>
+<section class="page" id="translation">
+  <div class="panelhead"><div class="eyebrow">MODULE 01</div><h1>Translation Lab</h1><p>Dịch câu tiếng Việt sang tiếng Anh. Thử tự diễn đạt trước khi xem gợi ý.</p></div>
+  <div class="card exercise">
+    <div class="sectionhead"><span class="tag">A2–B1 · Daily life</span><span class="muted" id="qCount">Question 1 / 3</span></div>
+    <div class="label">Translate into English</div><div class="prompt" id="viPrompt">Tôi thường dành thời gian rảnh để đọc sách vì nó giúp tôi giảm căng thẳng.</div>
+    <div style="margin-top:17px"><div class="label">Your answer</div><textarea id="translationAnswer" placeholder="Write your English translation here..."></textarea></div>
+    <div class="actions"><button class="btn" onclick="checkTranslation()">Check answer</button><button class="btn secondary" onclick="showHint()">Hint</button><button class="btn secondary" onclick="showModel()">Show model</button><button class="btn secondary" onclick="nextQuestion()">Next question →</button></div>
+    <div class="hint" id="hintText"></div><div class="feedback" id="translationFeedback"></div>
+  </div>
+</section>
+<section class="page" id="speaking">
+  <div class="panelhead"><div class="eyebrow">MODULE 02</div><h1>Speaking Lab</h1><p>Practice IELTS-style questions, prepare ideas and record your response.</p></div>
+  <div class="grid cols">
+    <div class="card"><div class="sectionhead"><h2>Part 1 · Hobbies</h2><span class="tag">B1</span></div><div class="label">Question 1 of 3</div><div class="prompt" id="sQuestion">What do you usually do in your free time?</div><div class="actions"><button class="btn secondary" onclick="nextSpeaking()">Next question</button><button class="btn secondary" onclick="speakQuestion()">🔊 Listen</button></div><div style="margin-top:18px"><div class="label">Your notes / answer</div><textarea id="sAnswer" placeholder="Prepare your answer here..."></textarea></div><div class="actions"><button class="btn" onclick="startRecording()">● Start recording</button><button class="btn secondary" onclick="stopRecording()">Stop</button></div><div class="hint" id="recordStatus">Recording permission may be requested by your browser. Audio is not uploaded in this prototype.</div></div>
+    <div class="card"><h2 style="font-size:17px;margin-top:0">Answer planner</h2><div class="task"><div><strong>Direct answer</strong><small>Answer the question clearly.</small></div></div><div class="task"><div><strong>Reason</strong><small>Explain why you enjoy it.</small></div></div><div class="task"><div><strong>Example / detail</strong><small>Add a personal example.</small></div></div><div class="task"><div><strong>Useful language</strong><small>in my spare time · unwind · take up a hobby</small></div></div><div class="notice">AI speaking assessment: planned integration for fluency, vocabulary, grammar and pronunciation. A real score requires audio processing and a validated assessment design.</div></div>
+  </div>
+</section>
+<section class="page" id="vocabulary">
+  <div class="panelhead"><div class="eyebrow">MODULE 03</div><h1>Vocabulary Lab</h1><p>Learn words in context, with IPA, collocations and examples.</p></div>
+  <div class="grid modulegrid">
+    <div class="card"><span class="tag">verb · B1</span><h2 style="margin-bottom:3px">unwind</h2><div class="muted">/ˌʌnˈwaɪnd/</div><p>thư giãn, nghỉ ngơi sau khi căng thẳng</p><strong>Collocation</strong><p>unwind after work · unwind by reading</p><strong>Example</strong><p>I listen to music to unwind after a busy day.</p></div>
+    <div class="card"><span class="tag">verb · B1</span><h2 style="margin-bottom:3px">broaden</h2><div class="muted">/ˈbrɔːdn/</div><p>mở rộng</p><strong>Collocation</strong><p>broaden your knowledge · broaden your horizons</p><strong>Example</strong><p>Travelling can broaden our horizons.</p></div>
+    <div class="card"><span class="tag">noun · B1</span><h2 style="margin-bottom:3px">benefit</h2><div class="muted">/ˈbenɪfɪt/</div><p>lợi ích</p><strong>Collocation</strong><p>bring benefits · health benefits</p><strong>Example</strong><p>Volunteering brings benefits to local communities.</p></div>
+  </div>
+</section>
+<section class="page" id="writing">
+  <div class="panelhead"><div class="eyebrow">MODULE 04</div><h1>Writing Lab</h1><p>Build ideas, improve sentences and develop paragraphs.</p></div>
+  <div class="grid cols"><div class="card"><span class="tag">IELTS Writing Task 2</span><h2 style="font-size:18px">Brainstorming workspace</h2><p class="muted">Topic: Some people think young people should do volunteer work in their communities. Do you agree or disagree?</p><label class="label">Your main idea</label><textarea placeholder="Write your main argument..."></textarea><label class="label" style="display:block;margin-top:12px">Supporting explanation and example</label><textarea placeholder="Develop your idea..."></textarea><button class="btn" style="margin-top:12px" onclick="alert('AI brainstorming feedback will be connected in the API version.')">Review my ideas</button></div><div class="card"><h2 style="font-size:17px">Writing toolkit</h2><div class="task"><div><strong>Paraphrasing</strong><small>Rewrite without changing meaning.</small></div></div><div class="task"><div><strong>Sentence building</strong><small>Combine ideas with complex structures.</small></div></div><div class="task"><div><strong>Paragraph development</strong><small>Topic sentence → explanation → example.</small></div></div><div class="task"><div><strong>Essay feedback</strong><small>Task response, coherence, vocabulary, grammar.</small></div></div></div></div>
+</section>
+<section class="page" id="listening">
+  <div class="panelhead"><div class="eyebrow">MODULE 05</div><h1>Listening Lab</h1><p>Practice listening tasks with transcripts and answer explanations.</p></div>
+  <div class="card"><span class="tag">Demo exercise · A2</span><h2 style="font-size:18px">Short announcement</h2><p>Listen to the sample sentence and complete the missing information.</p><button class="btn secondary" onclick="say('The school library opens at eight thirty and closes at five thirty every weekday.')">🔊 Play audio</button><p style="margin-top:18px">The library opens at <input id="listenAnswer" style="width:130px;display:inline-block" placeholder="..."> every weekday.</p><button class="btn" onclick="alert('Sample answer: eight thirty / 8:30. Full audio tasks will be added in the content editor.')">Check answer</button></div>
+</section>
+<section class="page" id="reading">
+  <div class="panelhead"><div class="eyebrow">MODULE 06</div><h1>Reading Lab</h1><p>Read actively, locate evidence and understand paraphrases.</p></div>
+  <div class="card"><span class="tag">Demo passage · B1</span><h2 style="font-size:18px">The value of volunteering</h2><p>Volunteering gives young people opportunities to develop practical skills and build relationships. By working with others, they can improve their communication and teamwork skills. At the same time, local communities benefit from the time and effort volunteers contribute.</p><div class="label">Question</div><p>Which skill can young people develop through volunteering?</p><select id="readingChoice"><option value="">Choose an answer</option><option>Cooking skills only</option><option>Communication and teamwork skills</option><option>Driving skills</option></select><button class="btn" style="margin-top:12px" onclick="alert(document.getElementById('readingChoice').value==='Communication and teamwork skills'?'Correct! Evidence: improve their communication and teamwork skills.':'Try again. Find the sentence that mentions skills.')">Check answer</button></div>
+</section>
+<section class="page" id="teacher">
+  <div class="panelhead"><div class="eyebrow">TEACHER WORKSPACE</div><h1>Teacher Studio</h1><p>Create and manage learning content. This demo stores newly created tasks in this browser only.</p></div>
+  <div class="grid cols">
+    <div class="card"><h2 style="font-size:18px;margin-top:0">Create an exercise</h2><form class="teacherform" id="createForm"><label>Exercise title<input id="newTitle" required placeholder="e.g. Unit 4 – Community service"></label><label>Module<select id="newModule"><option>Translation</option><option>Speaking</option><option>Vocabulary</option><option>Writing</option><option>Listening</option><option>Reading</option></select></label><label>Level<select id="newLevel"><option>A1</option><option>A2</option><option>B1</option><option>B2</option><option>C1</option></select></label><label>Instruction / question<textarea id="newPrompt" required placeholder="Enter the question or learning task..."></textarea></label><label>Reference answer (optional)<textarea id="newModel" placeholder="Enter suggested answer or marking notes..."></textarea></label><button class="btn" type="submit">＋ Save exercise</button></form></div>
+    <div class="card"><div class="sectionhead"><h2>My content library</h2><span class="tag" id="contentCount">0 items</span></div><div id="contentList" class="muted">Your exercises will appear here.</div><div class="notice" style="margin-top:16px">Future release: upload DOCX/PDF, bulk question import, assign to classes, due dates, rubric and student analytics.</div></div>
+  </div>
+</section>
+<section class="page" id="progress">
+  <div class="panelhead"><div class="eyebrow">LEARNING ANALYTICS</div><h1>My Progress</h1><p>A simple overview of practice activity in this prototype.</p></div>
+  <div class="grid stats"><div class="card"><div class="statlabel">Completed exercises</div><div class="statvalue" id="progressDone">3</div></div><div class="card"><div class="statlabel">Current streak</div><div class="statvalue">2 days</div></div><div class="card"><div class="statlabel">Vocabulary reviewed</div><div class="statvalue">28</div></div><div class="card"><div class="statlabel">Practice level</div><div class="statvalue">B1</div></div></div>
+  <div class="card"><h2 style="font-size:17px">Skills overview</h2><div class="task"><div style="width:100%"><strong>Translation</strong><div class="progress"><span style="width:72%"></span></div></div><b>72%</b></div><div class="task"><div style="width:100%"><strong>Vocabulary</strong><div class="progress"><span style="width:65%"></span></div></div><b>65%</b></div><div class="task"><div style="width:100%"><strong>Speaking</strong><div class="progress"><span style="width:48%"></span></div></div><b>48%</b></div><div class="task"><div style="width:100%"><strong>Writing</strong><div class="progress"><span style="width:40%"></span></div></div><b>40%</b></div></div>
+</section>
+<div class="footer">English Learning MN · Interactive front-end prototype · v0.1</div>
+</main>
+</div>
+</div>
+<script>
+const pages=['home','translation','speaking','vocabulary','writing','listening','reading','teacher','progress'];
+function go(id){document.querySelectorAll('.page').forEach(p=>p.classList.toggle('active',p.id===id));document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'});}
+document.querySelectorAll('.nav').forEach(n=>n.addEventListener('click',()=>go(n.dataset.page)));
+const roleSelect=document.getElementById('roleSelect');
+function setRole(){const teacher=roleSelect.value==='teacher';document.querySelectorAll('.teacher-only').forEach(x=>x.style.display=teacher?'flex':'none');if(!teacher&&document.getElementById('teacher').classList.contains('active'))go('home');}
+roleSelect.addEventListener('change',setRole);setRole();
+const questions=[
+{vi:'Tôi thường dành thời gian rảnh để đọc sách vì nó giúp tôi giảm căng thẳng.',hint:'usually spend my free time · reading books · reduce stress',model:'I usually spend my free time reading books because it helps me reduce stress.',keywords:['usually','free time','reading','because','stress']},
+{vi:'Tham gia hoạt động tình nguyện giúp người trẻ phát triển các kỹ năng giao tiếp và làm việc nhóm.',hint:'taking part in · volunteer activities · develop · communication and teamwork skills',model:'Taking part in volunteer activities helps young people develop communication and teamwork skills.',keywords:['volunteer','activities','young people','skills']},
+{vi:'Tôi thích đi bộ ngoài trời vì điều đó giúp tôi thư giãn sau một ngày bận rộn.',hint:'enjoy · go for a walk · outdoors · unwind · busy day',model:'I enjoy going for a walk outdoors because it helps me unwind after a busy day.',keywords:['enjoy','walk','outdoors','unwind']}
+];let qi=0;
+function renderQ(){document.getElementById('viPrompt').textContent=questions[qi].vi;document.getElementById('qCount').textContent=`Question ${qi+1} / ${questions.length}`;document.getElementById('translationAnswer').value='';document.getElementById('hintText').textContent='';document.getElementById('translationFeedback').className='feedback';}
+function showHint(){document.getElementById('hintText').textContent='💡 Hint: '+questions[qi].hint;}
+function showModel(){const f=document.getElementById('translationFeedback');f.innerHTML='<strong>Suggested answer</strong><p>'+questions[qi].model+'</p><small class="muted">There may be other correct ways to express the same meaning.</small>';f.className='feedback show';}
+function checkTranslation(){const a=document.getElementById('translationAnswer').value.trim();if(!a){alert('Please write your answer first.');return;}const f=document.getElementById('translationFeedback');const q=questions[qi];let hits=q.keywords.filter(k=>a.toLowerCase().includes(k)).length;f.innerHTML=`<div class="${hits>=q.keywords.length-1?'good':'bad'}">${hits>=q.keywords.length-1?'Good attempt!':'Keep improving!'}</div><p>This prototype checks a few key ideas only. It is not an AI score.</p><strong>Suggested answer</strong><p>${q.model}</p><small class="muted">Key ideas detected: ${hits}/${q.keywords.length}. The production version will use AI to evaluate meaning, grammar and naturalness, accepting valid alternatives.</small>`;f.className='feedback show';}
+function nextQuestion(){qi=(qi+1)%questions.length;renderQ();}
+const sQuestions=['What do you usually do in your free time?','Do you prefer spending your free time alone or with other people?','Has the way you spend your free time changed over the years?'];let si=0;
+function nextSpeaking(){si=(si+1)%sQuestions.length;document.getElementById('sQuestion').textContent=sQuestions[si];}
+function say(t){if('speechSynthesis'in window){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(t));}else alert('Text-to-speech is not supported in this browser.');}
+function speakQuestion(){say(document.getElementById('sQuestion').textContent);}
+let recorder,stream,chunks=[];
+async function startRecording(){try{stream=await navigator.mediaDevices.getUserMedia({audio:true});recorder=new MediaRecorder(stream);chunks=[];recorder.ondataavailable=e=>chunks.push(e.data);recorder.onstop=()=>{const blob=new Blob(chunks,{type:'audio/webm'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='speaking-practice.webm';a.textContent='Download recording';document.getElementById('recordStatus').innerHTML='Recording ready: ';document.getElementById('recordStatus').appendChild(a);stream.getTracks().forEach(t=>t.stop());};recorder.start();document.getElementById('recordStatus').textContent='Recording… select Stop when finished.';}catch(e){document.getElementById('recordStatus').textContent='Microphone permission was not granted or is unavailable. You can still type your answer.';}}
+function stopRecording(){if(recorder&&recorder.state==='recording')recorder.stop();}
+const createForm=document.getElementById('createForm');
+function getItems(){try{return JSON.parse(localStorage.getItem('ell_tasks')||'[]')}catch(e){return[]}}
+function saveItems(items){localStorage.setItem('ell_tasks',JSON.stringify(items));renderItems();}
+function renderItems(){const items=getItems();document.getElementById('contentCount').textContent=items.length+' items';const list=document.getElementById('contentList');if(!items.length){list.textContent='Your exercises will appear here.';return;}list.innerHTML='';items.forEach((it,i)=>{const d=document.createElement('div');d.className='listitem';const left=document.createElement('div');const strong=document.createElement('strong');strong.textContent=it.title;const small=document.createElement('small');small.textContent=it.module+' · '+it.level;small.style.display='block';small.style.color='#667085';left.append(strong,small);const del=document.createElement('button');del.className='btn secondary';del.textContent='Delete';del.onclick=()=>{const a=getItems();a.splice(i,1);saveItems(a)};d.append(left,del);list.appendChild(d);});}
+createForm.addEventListener('submit',e=>{e.preventDefault();const items=getItems();items.push({title:document.getElementById('newTitle').value,module:document.getElementById('newModule').value,level:document.getElementById('newLevel').value,prompt:document.getElementById('newPrompt').value,model:document.getElementById('newModel').value});saveItems(items);createForm.reset();});
+renderItems();renderQ();
+</script>
+</body>
+</html>
