@@ -656,13 +656,24 @@ function toggleRecognition(){
     [recognitionFinalText,interim].filter(Boolean).join(' ').trim();
   };
 
-  speechRecognition.onerror=event=>{
-   const messages={
-    'not-allowed':'Bạn chưa cấp quyền sử dụng micro.',
-    'no-speech':'Chưa nhận diện được giọng nói. Hãy thử nói rõ hơn.',
-    'network':'Có lỗi kết nối trong quá trình nhận diện.',
-    'audio-capture':'Không tìm thấy micro hoặc micro đang gặp sự cố.'
-   };
+speechRecognition.onerror=event=>{
+ const messages={
+  'not-allowed':'Bạn chưa cấp quyền sử dụng micro.',
+  'no-speech':'Chưa nhận diện được giọng nói. Hãy thử nói rõ hơn.',
+  'network':'Có lỗi kết nối trong quá trình nhận diện.',
+  'audio-capture':'Không tìm thấy micro hoặc micro đang gặp sự cố.',
+  'aborted':'Bạn đã dừng nhận diện giọng nói.'
+ };
+
+ recognitionActive=false;
+
+ const button=document.getElementById('recognitionButton');
+ button.textContent='🎙 Nhận diện giọng nói';
+ button.disabled=false;
+
+ status.textContent=messages[event.error]||
+  'Có lỗi khi nhận diện giọng nói: '+event.error;
+};
    status.textContent=messages[event.error]||'Có lỗi khi nhận diện giọng nói: '+event.error;
   };
 
