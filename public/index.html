@@ -529,13 +529,37 @@ function renderSpeakingQuestion(){
  document.getElementById('sQuestionCount').textContent=`Câu hỏi ${si+1} / ${sQuestions.length}`;
 }
 function nextSpeaking(){
+
+ // Dừng nhận diện giọng nói của câu hỏi trước
+ if(speechRecognition){
+  speechRecognition.onresult=null;
+  speechRecognition.onerror=null;
+  speechRecognition.onend=null;
+
+  try{
+   speechRecognition.abort();
+  }catch(error){}
+
+  speechRecognition=null;
+ }
+
+ recognitionActive=false;
+ recognitionFinalText='';
+
+ // Cập nhật nút nhận diện
+ const recognitionButton=document.getElementById('recognitionButton');
+ recognitionButton.textContent='🎙 Nhận diện giọng nói';
+ recognitionButton.disabled=false;
+
+ // Chuyển sang câu hỏi tiếp theo
  si=(si+1)%sQuestions.length;
  renderSpeakingQuestion();
+
+ // Xóa nội dung cũ
  document.getElementById('speechTranscript').value='';
  document.getElementById('speakingFeedback').innerHTML='';
  document.getElementById('speakingFeedback').className='feedback';
  document.getElementById('speechStatus').textContent='Chưa có nội dung nhận diện.';
- recognitionFinalText='';
 }
 function say(text){
  if(!('speechSynthesis'in window)){alert('Trình duyệt không hỗ trợ đọc văn bản.');return;}
